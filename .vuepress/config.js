@@ -1,42 +1,3 @@
-// has some bug
-// const feed_options = {
-//   canonical_base: 'https://tech.codelc.com',
-
-//   feed_options:{
-//     copyright: 'All rights reserved 2021-present, stiles',
-//     author: {
-//       name: "stiles",
-//       email: "louchenabc@gmail.com",
-//       link: "https://codelc.com"
-//     }
-//   },
-
-//   count: 50,
-
-//   posts_directories: ['/docs/'],
-
-//   description_sources: [
-
-//     'frontmatter',
-//     'excerpt',
-
-//     // html paragraph regex
-//     /([\s\S]*)/i,
-
-//   ],
-
-
-//   image_sources: [
-
-//     'frontmatter',
-
-//     /!\[.*?\]\((.*?)\)/i,         // markdown image regex
-//     /<img.*?src=['"](.*?)['"]/i,  // html image regex
-
-//   ],
-
-// };
-
 module.exports = {
   base: "/",
   title: "stiles 的技术分享",
@@ -58,7 +19,7 @@ module.exports = {
       require('./plugins/rss-feed'),
       {
         username: 'stiles',
-        hostname: 'http://tech.stiles.cc',
+        hostname: 'http://stiles.cc',
         selector: '.content__default', // extract content to content:encoded
         count: 50,
         filter: (page) => /^docs/.test(page.relativePath) && page.frontmatter.title,
@@ -102,17 +63,17 @@ module.exports = {
         title: "技术",
         collapsable: false,
         children: [
-          "/docs/tools/使用n8n订阅网站rss消息推送到Telegram.md",
+          "/docs/tools/使用n8n订阅网站rss消息推送到Telegram",
         ],
       },
       {
         title: "软件工程",
         collapsable: false,
         children: [
-          "/docs/engineering/Liquibase简单介绍与使用.md",
-          "/docs/engineering/恰如其分的代码.md",
-          "/docs/engineering/代码审查指南.md",
-          "/docs/engineering/Upsource实践指南.md",
+          "/docs/engineering/Liquibase简单介绍与使用",
+          "/docs/engineering/恰如其分的代码",
+          "/docs/engineering/代码审查指南",
+          "/docs/engineering/Upsource实践指南",
         ],
       },
     ],
