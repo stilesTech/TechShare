@@ -7,6 +7,8 @@ tags: ["数据库","DevOps"]
 categories: ["软件工程"]
 ---
 
+# Liquibase简单介绍与使用
+
 ## Liquibase还是Flyway
  Flyway和Liquibase都支持专业数据库重构和版本控制所需的所有功能，因此您将始终知道要处理的数据库模式的版本以及它是否与软件版本匹配。两种工具都集成在Maven或Gradle构建脚本中以及Spring Boot生态系统中，您可以完全自动化数据库重构。
 

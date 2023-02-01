@@ -7,6 +7,8 @@ tags: ["Sql Server","AlwaysOn"]
 categories: ["软件工程"]
 ---
 
+# SqlServer AlwaysOn搭建
+
 **什么是Always On**
 
 always on其实是指在sql server中实现高可用的解决方案之一，其实际是部署在Windows集群上的一个应用程序，是需要部署一个Windows故障转移集群（WSFC）。SQLServer集群则是部署Windows集群每个节点上的SQLServer应用。

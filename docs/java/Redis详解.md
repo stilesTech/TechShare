@@ -7,6 +7,8 @@ tags: ["Redis"]
 categories: ["技术"]
 ---
 
+# Redis详解
+
 **Redis (Remote Dictionary Server) 即远程字典服务.**
 
 是一个开源的使用 ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、**key-value 数据库**，并提供多种语言的 API。是当下最热门的NoSQL 技术之一，也被人们称之为机构化数据库。

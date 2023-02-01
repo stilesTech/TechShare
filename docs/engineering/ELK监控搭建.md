@@ -7,6 +7,8 @@ tags: ["ELK","监控"]
 categories: ["软件工程"]
 ---
 
+# ELK监控搭建
+
 实现Elasticsearch监控报警，x-pack,Sentinl,Watcher 等都是可行性方案之一,如下记下最近搭建的心得
 
 使用x-pack 监控

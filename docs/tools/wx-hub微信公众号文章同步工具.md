@@ -7,6 +7,8 @@ tags: ["opensource", "工具"]
 categories: ["工具"]
 ---
 
+# wx-hub微信公众号文章同步工具
+
 ## **一、简介**
 
 **wx-hub** 是一个 微信公众号内容半自动同步工具，可以快速通过微信链接同步其它公众号的文章信息。主要通过微信公众号的素材管理和草稿箱Api**wx-hub** github地址:https://github.com/stilesTech/wx-hub**wx-operate-api** github地址:https://github.com/stilesTech/wx-operate-api相关公众号接口文档：https://developers.weixin.qq.com/doc/offiaccount/Asset_Management/Adding_Permanent_Assets.html

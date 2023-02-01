@@ -6,7 +6,7 @@ comments: true
 tags: ["kubewatch"]
 categories: ["软件工程"]
 ---
-
+# 使用kubewatch监控k8s资源变更
 
 ## **kubewatch**
 

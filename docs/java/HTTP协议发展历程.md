@@ -7,6 +7,8 @@ tags: ["Http"]
 categories: ["技术"]
 ---
 
+# HTTP协议发展历程
+
 HTTP代表(Hyper Text Transfer Protocol)超文本传输协议。是一种用于分布式、协作式和超媒体信息系统的应用层协议。网络协议很多种,HTTP是万维网的数据通信的基础。
 
 1996年,HTTP1.0协议规范[RFC1945](http://www.ietf.org/rfc/rfc1945.txt)发布.

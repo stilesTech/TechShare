@@ -7,6 +7,8 @@ tags: ["redis"]
 categories: ["软件工程"]
 ---
 
+# centos上搭建redis集群
+
 简介：Redis 集群是一个可以在多个 Redis 节点之间进行数据共享的设施（installation）。
 
 **集群的理解**为何使用集群：解决单机故障，和单台服务器性能瓶颈的问题

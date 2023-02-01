@@ -7,6 +7,8 @@ tags: ["kubernetes"]
 categories: ["软件工程"]
 ---
 
+# .NET Core on K8S入门演示
+
 **前言**
 
 [学习了下jessetalk的.NET](http://xn--jessetalk-zb6ng3abn959kfm9e.NET) Core on K8S快速入门课程 有兴趣的同学可以通过http://video.jessetalk.cn报名，我这里简单的做了下笔记

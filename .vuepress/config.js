@@ -51,6 +51,7 @@ module.exports = {
       { text: "RSS 订阅", link: "http://stiles.cc/rss.xml" },
       { text: "GitHub", link: "https://github.com/stilesTech/TechShare" },
     ],
+    activeHeaderLinks: false,
     lastUpdated: '最后更新',
     sidebar: [
       {

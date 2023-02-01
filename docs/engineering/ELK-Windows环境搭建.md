@@ -7,6 +7,8 @@ tags: ["ELK","监控"]
 categories: ["软件工程"]
 ---
 
+# ELK-Windows环境搭建
+
 ELK是Elasticsearch、Logstash、Kibana的简称，这三者是核心组件。
 
 Elasticsearch:是数据存储、搜索、分析引擎，功能非常强大；
