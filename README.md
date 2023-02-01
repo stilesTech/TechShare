@@ -15,16 +15,43 @@
 
 ## 技术
 
-- [使用n8n订阅网站rss消息推送到Telegram](docs/tools/使用n8n订阅网站rss消息推送到Telegram.md)
+- [分布式理论基础](docs/java/分布式理论基础.md)
+- [HTTP协议发展历程](docs/java/HTTP协议发展历程.md)
+- [mongodb-入门到使用](docs/java/mongodb-入门到使用.md)
+- [Prometheus监控介绍](docs/java/Prometheus监控介绍.md)
+- [Redis详解](docs/java/Redis详解.md)
+
+## 队列
+
+- [RabbitMQ介绍](docs/rabbitmq/RabbitMQ介绍.md)
+- [Rabbitmq核心协议AMQP详解](docs/rabbitmq/Rabbitmq核心协议AMQP详解.md)
+
 ## 软件工程
 
+- [ELK监控搭建](docs/engineering/ELK监控搭建.md)
+- [ELK-Windows环境搭建](docs/engineering/ELK-Windows环境搭建.md)
 - [Liquibase简单介绍与使用](docs/engineering/Liquibase简单介绍与使用.md)
-- [恰如其分的代码](docs/engineering/恰如其分的代码.md)
-- [代码审查指南](docs/engineering/代码审查指南.md)
+- [在docker环境下运行PHP](docs/engineering/在docker环境下运行PHP.md)
+- [基于Jenkins+tfs+msbuild实现自动发布](docs/engineering/基于Jenkins+tfs+msbuild实现自动发布.md)
+- [使用kubewatch监控k8s资源变更](docs/engineering/使用kubewatch监控k8s资源变更.md)
+- [kubernetes-Dashboard账号](docs/engineering/kubernetes-Dashboard账号.md)
+- [kubernetes上部署.NetCore程序](docs/engineering/kubernetes上部署.NetCore程序.md)
+- [centos上搭建redis集群](docs/engineering/centos上搭建redis集群.md)
+- [SqlServer-AlwaysOn搭建](docs/engineering/SqlServer-AlwaysOn搭建.md)
+- [SqlServer上亿数据迁移到redis](docs/engineering/SqlServer上亿数据迁移到redis.md)
 - [Upsource实践指南](docs/engineering/Upsource实践指南.md)
 
+## 工具
+
+- [使用n8n订阅网站rss消息推送到Telegram](docs/tools/使用n8n订阅网站rss消息推送到Telegram.md)
+- [wx-hub微信公众号文章同步工具](docs/tools/wx-hub微信公众号文章同步工具.md)
+
+## 其它
+
+- [小程序开发介绍](docs/other/小程序开发介绍.md)
 
 ## 编程人生
 
 > Thinking in code.
+- [喜欢一个人的感觉有多美好](docs/thinking/喜欢一个人的感觉有多美好.md)
 
