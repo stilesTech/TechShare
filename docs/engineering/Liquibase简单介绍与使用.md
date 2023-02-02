@@ -25,14 +25,21 @@ Flyway使用SQL定义数据库更改，因此您可以定制SQL脚本，使其�
  实施端到端CI / CD要求将所有代码（包括数据库代码）检入版本控制系统，并作为软件发布过程的一部分进行部署。Liquibase可以帮助您实现这一目标。
  您使用Liquibase进行的每个数据库架构更改都称为一个changeset。Liquibase使用changelogs跟踪所有变更集。Liquibase允许您创建一个触发器，该触发器通过指向更改日志文件来自动更新数据库。从这里，可以轻松地将流程集成到您的整个CI / CD流程中：
 
-1.将变更集文件推送到要素存储库
+ 1.将变更集文件推送到要素存储库
+
  2.针对Dev分支创建拉取请求
+
  3.在同行评审和批准之后，将功能分支与开发分支合并
+
  4.在Dev服务器上配置的CI / CD实现触发Liquibase进行数据库更新
+
  5.Liquibase会自动执行任何新的变更日志文件（而且足以记住已经运行了哪些脚本）
 
 ## Liquibase原理
- 支持XML、YAML和JSON格式的迁移脚本。默认情况下，Bean会在/db/changelog（相对于Classpath根目录）里查找db.changelog-master.yaml文件。Liquibase变更集都集中在一个文件里。changeset命令后的那行有一个id属性，要对数据库进行后续变更。可以添加一个新的changeset，只要id不一样就行。此外，id属性也不一定是数字，可以包含任意内容。应用程序启动时，Liquibase会读取db.changelog-master.yaml里的变更集指令集，与之前写入databaseChangeLog表里的内容做对比，随后执行未运行过的变更集。
+ liquibase支持XML、YAML和JSON格式的迁移脚本。
+ 默认情况下，Bean会在/db/changelog（相对于Classpath根目录）里查找db.changelog-master.yaml文件。
+ Liquibase变更集都集中在一个文件里。changeset命令后的那行有一个id属性，要对数据库进行后续变更。可以添加一个新的changeset，只要id不一样就行。此外，id属性也不一定是数字，可以包含任意内容。
+ 应用程序启动时，Liquibase会读取db.changelog-master.yaml里的变更集指令集，与之前写入databaseChangeLog表里的内容做对比，随后执行未运行过的变更集。
 
 ## Liquibase 特性
 
@@ -52,7 +59,6 @@ Flyway使用SQL定义数据库更改，因此您可以定制SQL脚本，使其�
   <groupId>org.liquibase</groupId>
   <artifactId>liquibase-core</artifactId>
 </dependency>
-复制代码
 ```
 
 **二、指定配置文件位置**
@@ -80,7 +86,6 @@ public class LiquibaseConfig {
   }
 
 }
-复制代码
 ```
 
 **三、编写配置文件**
@@ -100,7 +105,6 @@ public class LiquibaseConfig {
     <includeAll path="liquibase/changelogs/" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>
-复制代码
 ```
 
 includeAll 标签可以把一个文件夹下的所有 changelog 都加载进来。如果单个加载可以用 include。
@@ -162,23 +166,36 @@ includeAll 标签可以把一个文件夹下的所有 changelog 都加载进来�
         </update>
     </changeSet>
 </databaseChangeLog>
-复制代码
 ```
 
 SQL 格式的 changelogs 文件
+
  变更集 changeset 是通过 author + id 的方式来保证唯一性
+
  变更集提供以下属性：
+
  stripComments:设置为 true 可在执行之前删除 SQL 中的任何注释, 否则为 false。如果未设置, 则默认值为 true
+
  splitStatements:设置为false时，在“s”和“go”上不会使用Liquibase 拆分语句，默认为true。
+
  endDelimiter:应用于语句结尾的分隔符。默认为“；”，也可以设置为“”
+
  runAlways:在每次运行时执行变更集, 即使之前已运行
+
  runOnChange:在首次看到更改并每次更改变更集时执行更改
+ 
  context:如果在运行时传递了特定上下文, 则执行更改。任何字符串都可以用于上下文名称, 并且大小写不敏感。
+
  logicalFilePath:用于在创建变更集的唯一标识符时重写文件名和路径。移动或重命名更改日志时所必需。
+
  labels:标签是对变更集进行分类的通用方法集类似上下文, 但工作方式正好相反。如果不是在运行时定义一组上下文, 然后在变更集中定义一个匹配表达式, 而是在上下文中定义一组标签, 在运行时定义一个匹配表达式。
+
  runInTransaction:变更集是否应作为单个事务运行 (如果可能)，默认值为 true。请注意此属性，如果设置为 false, 并且通过运行包含多个语句的变更集部分发生错误, 则 liquibase 数据库的 databasechangeloglock 表将处于无效状态
+
  failOnError:如果在执行变更集时发生错误, 迁移是否应返回失败
+
  dbms:要用于该变更集的数据库的类型。当迁移步骤运行时, 它将根据此属性检查数据库类型，如：oracle、mysql
+ 
  logicalFilePath:在数据库 databasechangeloglock 中设置逻辑文件路径, 而不是在执行 liquibase 的 sql 物理文件位置。
 
 **五、Liquibase最佳实践**

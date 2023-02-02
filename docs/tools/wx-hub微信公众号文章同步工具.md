@@ -11,7 +11,13 @@ categories: ["工具"]
 
 ## **一、简介**
 
-**wx-hub** 是一个 微信公众号内容半自动同步工具，可以快速通过微信链接同步其它公众号的文章信息。主要通过微信公众号的素材管理和草稿箱Api**wx-hub** github地址:https://github.com/stilesTech/wx-hub**wx-operate-api** github地址:https://github.com/stilesTech/wx-operate-api相关公众号接口文档：https://developers.weixin.qq.com/doc/offiaccount/Asset_Management/Adding_Permanent_Assets.html
+**wx-hub** 是一个 微信公众号内容半自动同步工具，可以快速通过微信链接同步其它公众号的文章信息。主要通过微信公众号的素材管理和草稿箱Api
+
+**wx-hub** github地址:https://github.com/stilesTech/wx-hub
+
+**wx-operate-api** github地址:https://github.com/stilesTech/wx-operate-api
+
+相关公众号接口文档：https://developers.weixin.qq.com/doc/offiaccount/Asset_Management/Adding_Permanent_Assets.html
 
 wx-operate-api 是wx-hub站点的后台支撑服务，需要添加对应的微信公众号配置才可以正常提供服务。相关配置如下图所示。
 

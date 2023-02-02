@@ -19,7 +19,9 @@ n8n 是一个免费且开放的、公平代码许可的基于节点的工作流�
 接下来演示下如何通过n8n实现网站rss更新通知到telegram.
 
 1:创建telegram机器人
+
 2:获取chat id
+
 3:构建n8n事件流
 
 **1.如何为Telegram创建机器人**
@@ -91,15 +93,20 @@ curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat
 我是参考: **[Setting up an Automated Blog using n8n & Tiny Tiny RSS](https://link.juejin.cn/?target=https%3A%2F%2Fforum.cloudron.io%2Ftopic%2F5736%2Fsetting-up-an-automated-blog-using-n8n-tiny-tiny-rss)**
 
 1：选择一个支持rss的网站，比如：([stiles.cc/feed/](https://link.juejin.cn/?target=http%3A%2F%2Fstiles.cc%2Ffeed%2F))
+
 2：使用[rss-stiles-workflow](https://link.juejin.cn/?target=https%3A%2F%2Fwww.notion.so%2F7b02a7745abf4350ba2e5839800fe039)地址，导入对应的工作流
+
 3：替换RSS Feed Read模块成想要订阅的RSS地址
+
 4：替换Telegram模块成之前获取到的token和chatid
 
 ![Snipaste_2022-07-29_13-59-03.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eabfd220952d47fd93ce7edca2125e72~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+
 ![Snipaste_2022-07-29_14-01-23.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66885be7c504413a8cf268c51c9ca028~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
 
 执行该workflow，但rss站点有新的文章发布的时候，telegram就能相应的发送消息通知，如下图：
 ![Snipaste_2022-07-29_14-45-02.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61b8d3e869db449586de213447029898~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+
 实际上n8n可以实现很多场景，你可以通过[n8n.io/workflows](https://link.juejin.cn/?target=https%3A%2F%2Fn8n.io%2Fworkflows%2F) 去搜索需要的工作流。比较容易想到的，devops流水线，多端消息互通，自动通信telegram机器人等
 
 参考资料

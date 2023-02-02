@@ -54,7 +54,7 @@ http://localhost:9200/_watcher/stats?pretty
 
 ![../uploads/2020/10/4154064543.png](../uploads/2020/10/4154064543.png)
 
-kibana上安装x-packkibana也采用本地安装： bin/kibana-plugin install file:x-pack-6.2.4.zip
+kibana上安装x-pack kibana也采用本地安装： bin/kibana-plugin install file:x-pack-6.2.4.zip
 
 kibana上设置es密码打开 kibana.yml 设置：
 
