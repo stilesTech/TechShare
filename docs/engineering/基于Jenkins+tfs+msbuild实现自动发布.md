@@ -57,9 +57,9 @@ MSBuild参数说明如下：
 
 /t:Rebuild (每次都是重新构建)/p:Configuration=Release （构建的是发布版本）/p:VisualStudioVersion=15.0 （vs的版本,使用的是2017填写的是15.0）/p:WebProjectOutputDir=D:\wwwroot\test （发布路径）/p:OutputPath=D:\wwwroot\test\bin (输出路径)/p:DeployOnBuild=True （表示启用编译并发布）
 
-msbuild文档：![点击查看文档](https://learn.microsoft.com/zh-cn/visualstudio/msbuild/msbuild?view=vs-2022)
+msbuild文档：[点击查看文档](https://learn.microsoft.com/zh-cn/visualstudio/msbuild/msbuild?view=vs-2022)
 
-msbuild15版本离线下载文件：![点击下载](https://www.microsoft.com/zh-CN/download/details.aspx?id=48159)
+msbuild15版本离线下载文件：[点击下载](https://www.microsoft.com/zh-CN/download/details.aspx?id=48159)
 
 执行windows批处理命令复制目录文件到对应站点下面
 
