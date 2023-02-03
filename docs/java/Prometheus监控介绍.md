@@ -72,9 +72,13 @@ Operator是核心部分，作为一个控制器而存在，Operator会创建Prom
 
 **3：kubernetes 上部署Prometheus**
 
-方式1：原生自建 [点击](https://yunlzheng.gitbook.io/prometheus-book/part-iii-prometheus-shi-zhan/readmd/deploy-prometheus-in-kubernetes)方式2：Prometheus Operator：[点击](https://yunlzheng.gitbook.io/prometheus-book/part-iii-prometheus-shi-zhan/operator/what-is-prometheus-operator)
+方式1：原生自建 [点击](https://yunlzheng.gitbook.io/prometheus-book/part-iii-prometheus-shi-zhan/readmd/deploy-prometheus-in-kubernetes)
 
-- Prometheus Operator 使用CustomResourceDefinition 来自定义资源，而CustomResourceDefinition 需要依赖kubernetes 1.16版本之上具体细节：CustomResourceDefinition 版本：https://kubernetes.io/zh/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/
+方式2：Prometheus Operator：[点击](https://yunlzheng.gitbook.io/prometheus-book/part-iii-prometheus-shi-zhan/operator/what-is-prometheus-operator)
+
+- Prometheus Operator 使用CustomResourceDefinition 来自定义资源，而CustomResourceDefinition 需要依赖kubernetes 1.16版本之上.
+
+具体细节：CustomResourceDefinition 版本：https://kubernetes.io/zh/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/
 
 **4：Prometheus告警定义**
 
