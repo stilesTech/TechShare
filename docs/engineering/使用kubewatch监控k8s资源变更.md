@@ -185,4 +185,6 @@ body内容解析后格式如下
 }
 ```
 
-**参考资料：**https://medium.com/@harsh.manvar111/kubernetes-event-notifications-1b2fb12a30ce
+**参考资料**
+
+https://medium.com/@harsh.manvar111/kubernetes-event-notifications-1b2fb12a30ce

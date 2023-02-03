@@ -15,19 +15,35 @@ categories: ["技术"]
 
 Prometheus受启发于Google的Brogmon监控系统,从2012年开始由前Google工程师在Soundcloud以开源软件的形式进行研发，并且于2015年早期对外发布早期版本。2016年5月继Kubernetes之后成为第二个正式加入CNCF基金会的项目，同年6月正式发布1.0版本。2017年底发布了基于全新存储层的2.0版本，能更好地与容器平台、云平台配合。
 
-作为时序数据库
+**作为时序数据库**
 
-点击链接查看排名：
-
-https://db-engines.com/en/ranking/time+series+dbms
+点击链接查看排名：https://db-engines.com/en/ranking/time+series+dbms 
 
 ![../uploads/2020/12/3797798294.png](../uploads/2020/12/3797798294.png)
 
-作为监控系统
+**作为监控系统**
 
 它从应用程序中实时获取时间序列数据，然后通过功能强大的规则引擎，帮助你识别监控环境所需的信息。
 
-特点：1：通过PromQL实现多维度数据模型的灵活查询。2：定义了开放指标数据的标准，自定义探针（如Exporter等），编写简单方便。3：PushGateway组件让这款监控系统可以接收监控数据。4：提供了VM和容器化的版本。5：采用拉模式为主、推模式为辅的方式采集数据。6：支持多种语言的客户端，如Java、JMX、Python、Go、Ruby、.NET、Node.js等语言。7：支持本地和第三方远程存储，单机性能强劲，可以处理上千target及每秒百万级时间序列。8：高效的存储。平均一个采样数据占3.5B左右，共320万个时间序列，每30秒采样一次，如此持续运行60天，占用磁盘空间大约为228GB（有一定富余量，部分要占磁盘空间的项目未在这里列出）9：出色的可视化功能。Prometheus拥有多种可视化的模式，比如内置表达式浏览器、Grafana集成和控制台模板语言。它还提供了HTTP查询接口，方便结合其他GUI组件或者脚本展示数据。不一一列举
+特点：
+
+1：通过PromQL实现多维度数据模型的灵活查询。
+
+2：定义了开放指标数据的标准，自定义探针（如Exporter等），编写简单方便。
+
+3：PushGateway组件让这款监控系统可以接收监控数据。
+
+4：提供了VM和容器化的版本。
+
+5：采用拉模式为主、推模式为辅的方式采集数据。
+
+6：支持多种语言的客户端，如Java、JMX、Python、Go、Ruby、.NET、Node.js等语言。
+
+7：支持本地和第三方远程存储，单机性能强劲，可以处理上千target及每秒百万级时间序列。
+
+8：高效的存储。平均一个采样数据占3.5B左右，共320万个时间序列，每30秒采样一次，如此持续运行60天，占用磁盘空间大约为228GB（有一定富余量，部分要占磁盘空间的项目未在这里列出）
+
+9：出色的可视化功能。Prometheus拥有多种可视化的模式，比如内置表达式浏览器、Grafana集成和控制台模板语言。它还提供了HTTP查询接口，方便结合其他GUI组件或者脚本展示数据。不一一列举
 
 下图是prometheus的体系结构和对应的生态组件
 
@@ -66,7 +82,9 @@ Operator是核心部分，作为一个控制器而存在，Operator会创建Prom
 
 ![../uploads/2020/12/3027638514.png](../uploads/2020/12/3027638514.png)
 
-**4.1.告警规则组成**在Prometheus中一条告警规则主要由以下几部分组成：
+**4.1.告警规则组成**
+
+在Prometheus中一条告警规则主要由以下几部分组成：
 
 - 告警名称：用户需要为告警规则命名，当然对于命名而言，需要能够直接表达出该告警的主要内容
 - 告警规则：告警规则实际上主要由PromQL进行定义，其实际意义是当表达式（PromQL）查询结果持续多长时间（During）后出发告警
@@ -89,7 +107,19 @@ groups:
 
 在告警规则文件中，我们可以将一组相关的规则设置定义在一个group下。在每一个group中我们可以定义多个告警规则(rule)。一条告警规则主要由以下几部分组成：
 
-alert：告警规则的名称。expr：基于PromQL表达式告警触发条件，用于计算是否有时间序列满足该条件。for：指定Prometheus服务等待时间，可选参数。用于表示只有当触发条件持续一段时间后才发送告警。在等待期间新产生告警的状态为pending。labels：自定义标签，允许用户指定要附加到告警上的一组附加标签，任何已存在的冲突标签都会被重写。annotations：用于指定一组附加信息，比如用于描述告警详细信息的文字等，annotations的内容在告警产生时会一同作为参数发送到Alertmanager。**4.2.如何启用告警规则**在Prometheus全局配置文件中通过rule_files指定一组告警规则文件的访问路径，Prometheus启动后会自动扫描这些路径下规则文件中定义的内容，并且根据这些规则计算是否向外部发送通知：
+alert：告警规则的名称。
+
+expr：基于PromQL表达式告警触发条件，用于计算是否有时间序列满足该条件。
+
+for：指定Prometheus服务等待时间，可选参数。用于表示只有当触发条件持续一段时间后才发送告警。在等待期间新产生告警的状态为pending。
+
+labels：自定义标签，允许用户指定要附加到告警上的一组附加标签，任何已存在的冲突标签都会被重写。
+
+annotations：用于指定一组附加信息，比如用于描述告警详细信息的文字等，annotations的内容在告警产生时会一同作为参数发送到Alertmanager。
+
+**4.2.如何启用告警规则**
+
+在Prometheus全局配置文件中通过rule_files指定一组告警规则文件的访问路径，Prometheus启动后会自动扫描这些路径下规则文件中定义的内容，并且根据这些规则计算是否向外部发送通知：
 
 ```
 rule_files:
@@ -107,7 +137,9 @@ global:
   [ evaluation_interval: <duration> | default = 1m ]
 ```
 
-**4.3.模板化**一般来说，在告警规则文件的annotations中使用summary描述告警的概要信息，description用于描述告警的详细信息。同时Alertmanager的UI也会根据这两个标签值，显示告警信息。为了让告警信息具有更好的可读性，Prometheus支持模板化label和annotations中的标签的值。
+**4.3.模板化**
+
+一般来说，在告警规则文件的annotations中使用summary描述告警的概要信息，description用于描述告警的详细信息。同时Alertmanager的UI也会根据这两个标签值，显示告警信息。为了让告警信息具有更好的可读性，Prometheus支持模板化label和annotations中的标签的值。
 
 通过$labels.<labelname>变量可以访问当前告警实例中指定标签的值。$value则可以获取当前PromQL表达式计算的样本值
 
@@ -142,7 +174,9 @@ groups:
       description: "{{ $labels.instance }} has a median request latency above 1s (current value: {{ $value }}s)"
 ```
 
-**4.4.警报触发**Prometheus以一个固定时间间隔来评估所有规则，这个时间由evaluate_interval定义，我们将其设置为15秒。在每个评估周期，Prometheus运行每个警报规则中定义的表达式并更新警报状态。警报可能有以下三种状态：Inactive：警报未激活。Pending：警报已满足测试表达式条件，但仍在等待for子句中指定的持续时间。Firing：警报已满足测试表达式条件，并且Pending的时间已超过for子句的持续时间。
+**4.4.警报触发**
+
+Prometheus以一个固定时间间隔来评估所有规则，这个时间由evaluate_interval定义，我们将其设置为15秒。在每个评估周期，Prometheus运行每个警报规则中定义的表达式并更新警报状态。警报可能有以下三种状态：Inactive：警报未激活。Pending：警报已满足测试表达式条件，但仍在等待for子句中指定的持续时间。Firing：警报已满足测试表达式条件，并且Pending的时间已超过for子句的持续时间。
 
 Pending到Firing的转换可以确保警报更有效，且不会来回浮动。没有for子句的警报会自动从Inactive转换为Firing，只需要一个评估周期即可触发。带有for子句的警报将首先转换为Pending，然后转换为Firing，因此至少需要两个评估周期才能触发。
 
@@ -236,9 +270,11 @@ receivers:
 - **错误**：错误数。例如，网卡在数据包传输过程中检测到以太网络冲突了14次。
 - USE 侧重于主机级监控,针对每个资源，检查使用率、饱和度和错误。该方法对于监控那些受高使用率或饱和度的性能问题影响的资源来说是最有效的。让我们快速查看每个术语的定义以帮助理解。
 
-Linux系统的参考示例清单:http://www.brendangregg.com/USEmethod/use-linux.html
+Linux系统的参考示例清单:[链接](http://www.brendangregg.com/USEmethod/use-linux.html)
 
-**3.Weave Cloud的RED方法**RED方法是Weave Cloud基于Google的4个黄金指标再结合Prometheus及Kubernetes容器实践得出的方法论，特别适用于对云原生应用以及微服务架构应用进行监控和度量。在四大黄金指标的原则下，RED方法可以有效地帮助用户衡量云原生以及微服务应用下的用户体验问题。RED方法主要关注以下3种关键指标。
+**3.Weave Cloud的RED方法**
+
+RED方法是Weave Cloud基于Google的4个黄金指标再结合Prometheus及Kubernetes容器实践得出的方法论，特别适用于对云原生应用以及微服务架构应用进行监控和度量。在四大黄金指标的原则下，RED方法可以有效地帮助用户衡量云原生以及微服务应用下的用户体验问题。RED方法主要关注以下3种关键指标。
 
 **（Request）Rate**：每秒接收的请求数。
 
@@ -246,18 +282,16 @@ Linux系统的参考示例清单:http://www.brendangregg.com/USEmethod/use-linux
 
 **（Request）Duration**：每个请求所花费的时间，用时间间隔表示。
 
-RED方法:https://www.weave.works/blog/the-red-method-key-metrics-for-microservices-architecture/
+RED方法:[链接](https://www.weave.works/blog/the-red-method-key-metrics-for-microservices-architecture/)
 
 一般来说，上述三大监控理论的最佳实践是：在遵循Google四大黄金指标的前提下，对于在线系统，结合RED方法和缓存命中率方式进行监测；对于离线系统或者主机监控，以USE方法为主进行监测；对于批处理系统，可以采用类似Pushgateway的形式进行监控。
 
-参考链接：
+**参考链接**
 
-prometheus-book：https://yunlzheng.gitbook.io/prometheus-book/
+prometheus-book：[https://yunlzheng.gitbook.io/prometheus-book](https://yunlzheng.gitbook.io/prometheus-book/)
 
-Prometheus官网：https://prometheus.io/
+Prometheus官网：[https://prometheus.io](https://prometheus.io/)
 
-Prometheus文档：https://prometheus.io/docs/
+Prometheus文档：[https://prometheus.io/docs](https://prometheus.io/docs/)
 
-Prometheus云原生监控：运维与开发实战：https://read.douban.com/ebook/162985878/
-
-- 以上内容采集于网络由个人汇总整理,如有侵权请告知后及时删除.转载：请注明出处 http://stiles.cc/archives/143/
+Prometheus云原生监控：运维与开发实战：[https://read.douban.com/ebook/162985878](https://read.douban.com/ebook/162985878/)
