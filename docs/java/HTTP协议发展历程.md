@@ -132,7 +132,7 @@ HTTP 2.0 对 HTTP 的延迟问题起到了可以说是一个巨大的优化。�
 
 *转载：请注明出处 http://stiles.cc/archives/170/
 
-**参考文章**
+**参考资料**
 
 https://developers.google.com/web/fundamentals/performance/http2?hl=zh-cn
 

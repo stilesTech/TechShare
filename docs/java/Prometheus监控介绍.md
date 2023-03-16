@@ -290,7 +290,7 @@ RED方法:[链接](https://www.weave.works/blog/the-red-method-key-metrics-for-m
 
 一般来说，上述三大监控理论的最佳实践是：在遵循Google四大黄金指标的前提下，对于在线系统，结合RED方法和缓存命中率方式进行监测；对于离线系统或者主机监控，以USE方法为主进行监测；对于批处理系统，可以采用类似Pushgateway的形式进行监控。
 
-**参考链接**
+**参考资料**
 
 prometheus-book：[https://yunlzheng.gitbook.io/prometheus-book](https://yunlzheng.gitbook.io/prometheus-book/)
 

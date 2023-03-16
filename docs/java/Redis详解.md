@@ -160,7 +160,9 @@ Redis4.0版本开始引入
 
 **redis采用了惰性删除和定期删除策略**
 
-[参考](http://stiles.cc/archives/92/在这三种策略中，第一种和第三种为主动删除策略，而第二种则为被动删除策略。 https://www.cnblogs.com/capacity-yang/p/13095005.html)
+在这三种策略中，第一种和第三种为主动删除策略，而第二种则为被动删除策略。
+
+[参考](https://www.cnblogs.com/capacity-yang/p/13095005.html)
 
 **惰性删除策略的实现**
 
@@ -326,4 +328,6 @@ Redis集群采用无代理模式，客户端发送的所有命令都会直接交
 
 **参考资料**
 
-https://blog.itzhouq.cn/redis1[redis设计与实践](https://e.jd.com/30189715.html)
+https://blog.itzhouq.cn/redis1
+
+[redis设计与实践](https://e.jd.com/30189715.html)
