@@ -9,5 +9,7 @@ features:
   details: 技术文章，效率工具，软件工程等内容
 - title: 关于我
   details: 🐒 一个互联网老兵。
-footer: Copyright © 2023-present stiles
 ---
+::: slot footer
+  Copyright © 2023-present [粤ICP备2021014324号-1](https://beian.miit.gov.cn/)
+:::

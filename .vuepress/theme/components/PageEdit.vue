@@ -1,4 +1,5 @@
 <template>
+  <div>
   <footer class="page-edit">
     <div v-if="editLink" class="edit-link">
       <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
@@ -22,6 +23,7 @@
       <span class="time">{{ lastUpdated }}</span>
     </div>
   </footer>
+</div>
 </template>
 
 <script>

@@ -27,6 +27,7 @@
         →
       </span>
         </p>
+        <div class="footer" style="font-size: 0.5rem;text-align: left;"><a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2021014324号-1</a></div>
     </div>
 </template>
 

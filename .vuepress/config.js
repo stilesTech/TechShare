@@ -42,6 +42,7 @@ module.exports = {
   },
   // 其它配置
   themeConfig: {
+    displayFooter:true,
     // repo: 'stilesTech/TechShare',
     nav: [
       { text: "关于", link: "/about/" },
@@ -57,8 +58,13 @@ module.exports = {
       {
         title: "目录",
         collapsable: false,
-        path: "/SUMMARY.md",
+        path: "/",
       },
+      // {
+      //   title: "目录",
+      //   collapsable: false,
+      //   path: "/SUMMARY.md",
+      // },
       {
         title: "技术",
         collapsable: false,
