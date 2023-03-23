@@ -7,7 +7,7 @@ tags: ["数据库","DevOps"]
 category: 软件工程
 ---
 
->使用Liquibase完成数据库脚本的版本控制，无缝嵌入到CI / CD的流程中。这篇文章就来讨论一下如何使用Liquibase。
+使用Liquibase完成数据库脚本的版本控制，无缝嵌入到CI / CD的流程中。这篇文章就来讨论一下如何使用Liquibase。
 
 <!-- more -->
 

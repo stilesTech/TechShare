@@ -7,7 +7,7 @@ tags: ["Http"]
 category: 技术
 ---
 
-> HTTP代表(Hyper Text Transfer Protocol)超文本传输协议,比较了下Http1.0, Http1.1, Http2.0 的技术发展历程.
+HTTP代表(Hyper Text Transfer Protocol)超文本传输协议,比较了下Http1.0, Http1.1, Http2.0 的技术发展历程.
 
 <!-- more -->
 
