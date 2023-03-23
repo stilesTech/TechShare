@@ -1,8 +1,3 @@
----
-comment: false
-lang: zh-CN
-permalink: /
----
 
 # stiles 的技术分享
 
