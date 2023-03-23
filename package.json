@@ -1,44 +1,113 @@
 {
-  "name": "techshare",
-  "version": "1.0.0",
-  "description": "> 分享使你我都受益，何乐而不为也。但伏尔泰说过，图书馆是真理和谬误的宝库，所以仅是希望对你有益，若有谬误还望指出以更正。",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vuepress dev . --temp .temp",
-    "build": "vuepress build ."
+  "name": "stiles-blog",
+  "version": "1.9.0",
+  "description": "vuepress blog theme - stiles",
+  "keywords": [
+    "blog",
+    "theme",
+    "vuepress"
+  ],
+  "homepage": "https://github.com/meteorlxy/vuepress-theme-meteorlxy",
+  "bugs": {
+    "url": "https://github.com/meteorlxy/vuepress-theme-meteorlxy/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stilesTech/TechShare.git"
+    "url": "https://github.com/meteorlxy/vuepress-theme-meteorlxy.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/stilesTech/TechShare/issues"
+  "license": "MIT",
+  "author": "meteorlxy <meteor.lxy@foxmail.com>",
+  "main": "lib/index.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "build": "vuepress build docs --dest docs-dist",
+    "dev": "vuepress dev docs --no-cache --temp .temp",
+    "lint": "eslint --ext .js,.vue lib docs",
+    "semantic-release": "semantic-release",
+    "serve": "vuepress serve docs --dest docs-dist",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add CHANGELOG.md"
   },
-  "homepage": "https://github.com/stilesTech/TechShare#readme",
-  "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.4.0",
-    "github-buttons": "^2.13.0",
-    "markdown-it-abbr": "^1.0.4",
-    "markdown-it-figure": "^0.2.0",
-    "markdown-it-ins": "^3.0.0",
-    "markdown-it-mermaid": "^0.2.5",
-    "markdown-it-smartarrows": "^1.0.1",
-    "markdown-it-sub": "^1.0.0",
-    "markdown-it-sup": "^1.0.0",
-    "moment": "^2.29.2",
-    "vuepress": "^1.9.8",
-    "@vuepress/shared-utils": "^1.4.0",
-    "cheerio": "^1.0.0-rc.3",
-    "rss": "^1.2.2"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "package.json": [
+      "sort-package-json",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "plugin:vue/recommended"
+    ],
+    "rules": {
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "dot-notation": [
+        "error",
+        {
+          "allowPattern": "^$"
+        }
+      ]
+    },
+    "root": true
   },
   "dependencies": {
-    "markdown-it-fontawesome": "^0.3.0"
+    "@vssue/api-github-v3": "^1.0.0",
+    "@vssue/vuepress-plugin-vssue": "^1.0.0",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
+    "@vue/babel-preset-jsx": "^1.0.0",
+    "@vuepress/plugin-back-to-top": "^1.3.0",
+    "@vuepress/plugin-google-analytics": "^1.3.0",
+    "@vuepress/shared-utils": "^1.3.0",
+    "date-fns": "^1.30.1",
+    "geopattern": "^1.2.3",
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
+    "markdown-it-center-text": "^1.0.4",
+    "vuepress-plugin-container": "^2.1.2",
+    "vuepress-plugin-nprogress": "^1.1.6",
+    "vuepress-plugin-redirect": "^1.2.3",
+    "vuepress-plugin-serve": "^2.0.0",
+    "vuepress-plugin-smooth-scroll": "^0.0.9",
+    "vuepress-plugin-table-of-contents": "^1.1.5",
+    "vuepress-plugin-zooming": "^1.1.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "conventional-changelog-cli": "^2.0.21",
+    "eslint": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.1.2",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "semantic-release": "^17.0.7",
+    "sort-package-json": "^1.22.1",
+    "vuepress": "^1.3.0"
+  },
+  "peerDependencies": {
+    "vuepress": "^1.3.0"
   }
 }
