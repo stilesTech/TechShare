@@ -7,9 +7,9 @@ tags: ["Jenkins","DevOps"]
 category: 软件工程
 ---
 
-# 基于Jenkins+tfs+msbuild实现自动发布
+Jenkins是一款开源 CI&CD 软件，用于自动化各种任务，包括构建、测试和部署软件。
 
-Jenkins是一款开源 CI&CD 软件，用于自动化各种任务，包括构建、测试和部署软件.
+<!-- more -->
 
 官网地址:Jenkins, 默认端口8080
 

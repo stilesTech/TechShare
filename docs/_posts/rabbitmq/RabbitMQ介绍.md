@@ -7,11 +7,11 @@ tags: ["rabbitmq"]
 category: 队列
 ---
 
-# RabbitMQ介绍
+RabbitMQ是采用Erlang实现的给予AMQP协议标准的消息队列，建立在Erlang OTP平台上。
 
-**1.RabbitMQ介绍**
+<!-- more -->
 
-RabbitMQ：是采用Erlang实现的给予AMQP协议标准的消息队列，建立在Erlang OTP平台上。
+**1.安装RabbitMQ**
 
 安装顺序如下：
 
@@ -19,7 +19,7 @@ RabbitMQ：是采用Erlang实现的给予AMQP协议标准的消息队列，建�
 
 2：http://www.rabbitmq.com/install-windows.html，下载rabbitmq安装包。
 
-**2. AMQP messaging 中的基本概念**
+**2.AMQP messaging 中的基本概念**
 
 ![../uploads/2020/10/4051105280.jpg](../uploads/2020/10/4051105280.jpg)
 

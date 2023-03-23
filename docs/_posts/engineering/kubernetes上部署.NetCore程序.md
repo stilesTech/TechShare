@@ -7,9 +7,9 @@ tags: ["kubernetes"]
 category: 软件工程
 ---
 
-# kubernetes上部署.net core程序
-
 19年最后一天梳理了下部署.net core 到腾讯云kubernetes集群上面
+
+<!-- more -->
 
 流程如下：
 

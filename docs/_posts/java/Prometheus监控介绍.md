@@ -7,7 +7,9 @@ tags: ["Prometheus"]
 category: 技术
 ---
 
-# Prometheus监控介绍
+Prometheus既是一个时序数据库，又是一个监控系统，更是一套开源的完备监控生态解决方案。运行在Kubernetes上能自动采集spring boot服务运行指标。可以实现接口请求频率检测，资源告警检测，也可以定制化实现对应的指标收集。
+
+<!-- more -->
 
 **1：Prometheus简介：**
 

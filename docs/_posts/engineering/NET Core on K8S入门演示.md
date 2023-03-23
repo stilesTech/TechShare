@@ -7,11 +7,9 @@ tags: ["kubernetes"]
 category: 软件工程
 ---
 
-# .NET Core on K8S入门演示
+学习了下jessetalk的[.NET Core on K8S](http://xn--jessetalk-zb6ng3abn959kfm9e.NET) 快速入门课程 有兴趣的同学可以通过http://video.jessetalk.cn报名，我这里简单的做了下笔记
 
-**前言**
-
-[学习了下jessetalk的.NET](http://xn--jessetalk-zb6ng3abn959kfm9e.NET) Core on K8S快速入门课程 有兴趣的同学可以通过http://video.jessetalk.cn报名，我这里简单的做了下笔记
+<!-- more -->
 
 Docker: 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。
 
@@ -202,4 +200,6 @@ kubectl proxy
 
 参考资料：
 
-[Docker社区版中Kubernetes开发](https://developer.aliyun.com/article/508460)[.NET Core on K8S快速入门课程](http://video.jessetalk.cn/)
+[Docker社区版中Kubernetes开发](https://developer.aliyun.com/article/508460)
+
+[.NET Core on K8S快速入门课程](http://video.jessetalk.cn/)

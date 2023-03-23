@@ -6,11 +6,11 @@ comments: true
 tags: ["opensource", "工具"]
 ---
 
-# wx-hub微信公众号文章同步工具
+开源了耗时几天的一个微信公众号内容同步工具：wx-hub，可以快速通过微信链接同步其它公众号的文章信息。
+
+<!-- more -->
 
 ## **一、简介**
-
-**wx-hub** 是一个 微信公众号内容半自动同步工具，可以快速通过微信链接同步其它公众号的文章信息。主要通过微信公众号的素材管理和草稿箱Api
 
 **wx-hub** github地址:https://github.com/stilesTech/wx-hub
 

@@ -7,6 +7,10 @@ tags: ["mongodb"]
 category: 技术
 ---
 
+> MongoDB是一个高性能、开源、无模式的文档型数据库,简单带你入门。
+
+<!-- more -->
+
 # mongodb-入门到使用
 
 **1.什么是mongodb**

@@ -7,6 +7,10 @@ tags: ["ELK","监控"]
 category: 软件工程
 ---
 
+ELK通过x-pack,Sentinl,Watcher 等插件都可以实现监控报警,本文实践了下Sentinl监控插件的安装使用步骤。
+
+<!-- more -->
+
 # ELK监控搭建
 
 实现Elasticsearch监控报警，x-pack,Sentinl,Watcher 等都是可行性方案之一,如下记下最近搭建的心得

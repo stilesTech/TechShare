@@ -7,6 +7,10 @@ tags: ["Http"]
 category: 技术
 ---
 
+> HTTP代表(Hyper Text Transfer Protocol)超文本传输协议,比较了下Http1.0, Http1.1, Http2.0 的技术发展历程.
+
+<!-- more -->
+
 # HTTP协议发展历程
 
 HTTP代表(Hyper Text Transfer Protocol)超文本传输协议。是一种用于分布式、协作式和超媒体信息系统的应用层协议。网络协议很多种,HTTP是万维网的数据通信的基础。
@@ -128,9 +132,7 @@ HTTP 2.0 对 HTTP 的延迟问题起到了可以说是一个巨大的优化。�
 
 总结了下http的发展脉络希望对你有帮助
 
-*以上内容采集于网络由个人汇总整理,如有侵权请告知后及时删除.
-
-*转载：请注明出处 http://stiles.cc/archives/170/
+>以上内容采集于网络由个人汇总整理,如有侵权请告知后及时删除.
 
 **参考资料**
 

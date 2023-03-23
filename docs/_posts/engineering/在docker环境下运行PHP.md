@@ -7,6 +7,10 @@ tags: ["docker"]
 category: 软件工程
 ---
 
+实践世界上最好的语言PHP，打包部署到docker。
+
+<!-- more -->
+
 # 在docker环境下运行PHP
 
 Nginx是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。

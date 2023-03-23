@@ -6,11 +6,11 @@ date: 2022-07-28T19:42:06+08:00
 comments: true
 ---
 
-# 使用n8n订阅网站rss消息推送到Telegram
-
 n8n 是一个免费且开放的、公平代码许可的基于节点的工作流自动化工具。它可以自托管、易于扩展。可帮助您将任何具有 API 的应用程序与任何其他应用程序连接起来，并使用很少或无需代码来操作其数据。
 
 > n8n is a free and open [fair-code](https://faircode.io/) licensed node based Workflow Automation Tool. It can be self-hosted, easily extended. helps you to connect any app with an API with any other, and manipulate its data with little or no code.
+
+<!-- more -->
 
 # 关于n8n
 

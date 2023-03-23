@@ -7,9 +7,9 @@ tags: ["rabbitmq"]
 category: 队列
 ---
 
-# Rabbitmq核心协议AMQP详解
+> RabbitMQ是使用Erlang语言编写，实现了高级消息队列协议（AMQP）的一款**消息中间件**。
 
-RabbitMQ是使用Erlang语言编写，实现了高级消息队列协议（AMQP）的一款**消息中间件**。
+<!-- more -->
 
 **AMQP是什么？**
 

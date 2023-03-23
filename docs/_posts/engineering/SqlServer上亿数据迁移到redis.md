@@ -7,9 +7,9 @@ tags: ["Sql Server","redis","数据迁移"]
 category: 软件工程
 ---
 
-# SqlServer上亿数据迁移到redis
-
 记录下工作上最近遇到的一次sqlserver数据迁移到redis上面的一些经验
+
+<!-- more -->
 
 方案一:redis2.6之后使用redis-cli支持pipe模式进行批量插入数据生成file.txt 文件，内容 SET key value（空格隔开）每行一条数据linux环境下使用-cat命令
 

@@ -7,7 +7,9 @@ tags: ["数据库","DevOps"]
 category: 软件工程
 ---
 
-# Liquibase简单介绍与使用
+>使用Liquibase完成数据库脚本的版本控制，无缝嵌入到CI / CD的流程中。这篇文章就来讨论一下如何使用Liquibase。
+
+<!-- more -->
 
 ## Liquibase还是Flyway
  Flyway和Liquibase都支持专业数据库重构和版本控制所需的所有功能，因此您将始终知道要处理的数据库模式的版本以及它是否与软件版本匹配。两种工具都集成在Maven或Gradle构建脚本中以及Spring Boot生态系统中，您可以完全自动化数据库重构。
@@ -21,6 +23,7 @@ Flyway使用SQL定义数据库更改，因此您可以定制SQL脚本，使其�
 
 官网：[docs.liquibase.com/](https://link.juejin.cn?target=https%3A%2F%2Fdocs.liquibase.com%2F)
  ![1617546202(1).jpg](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f1605123da94acdb4a7a9a7b7907c1e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+
 ## 使用Liquibase的数据库的CI / CD
  实施端到端CI / CD要求将所有代码（包括数据库代码）检入版本控制系统，并作为软件发布过程的一部分进行部署。Liquibase可以帮助您实现这一目标。
  您使用Liquibase进行的每个数据库架构更改都称为一个changeset。Liquibase使用changelogs跟踪所有变更集。Liquibase允许您创建一个触发器，该触发器通过指向更改日志文件来自动更新数据库。从这里，可以轻松地将流程集成到您的整个CI / CD流程中：
@@ -36,6 +39,7 @@ Flyway使用SQL定义数据库更改，因此您可以定制SQL脚本，使其�
  5.Liquibase会自动执行任何新的变更日志文件（而且足以记住已经运行了哪些脚本）
 
 ## Liquibase原理
+
  liquibase支持XML、YAML和JSON格式的迁移脚本。
  默认情况下，Bean会在/db/changelog（相对于Classpath根目录）里查找db.changelog-master.yaml文件。
  Liquibase变更集都集中在一个文件里。changeset命令后的那行有一个id属性，要对数据库进行后续变更。可以添加一个新的changeset，只要id不一样就行。此外，id属性也不一定是数字，可以包含任意内容。

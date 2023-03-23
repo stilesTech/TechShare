@@ -6,7 +6,10 @@ comments: true
 tags: ["kubewatch"]
 category: 软件工程
 ---
-# 使用kubewatch监控k8s资源变更
+
+>实践kubewatch监控Kubernetes 资源信息，通过飞书发送告警通知
+
+<!-- more -->
 
 ## **kubewatch**
 

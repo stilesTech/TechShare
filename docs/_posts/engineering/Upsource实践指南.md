@@ -7,13 +7,11 @@ tags: ["代码","代码审查"]
 category: 软件工程
 ---
 
-# Upsource实践指南
-
-## 简介
-
 Upsource是一款由Jetbrains公司出品的代码审查工具，具有社交属性，将代码予以团队成员或其他人分享，讨论。浏览代码视觉效果美观，可以与IDEA无缝集成，完成代码审查工作。
 
 官方文档：[点击查看](https://link.juejin.cn/?target=https%3A%2F%2Fwww.jetbrains.com%2Fhelp%2Fupsource%2Fgetting-started.html)
+
+<!-- more -->
 
 ## 一：代码审查中的角色
 

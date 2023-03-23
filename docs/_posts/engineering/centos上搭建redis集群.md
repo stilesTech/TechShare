@@ -7,7 +7,9 @@ tags: ["redis"]
 category: 软件工程
 ---
 
-# centos上搭建redis集群
+实践在虚拟机centos环境下搭建Redis 集群，本文主要讲解下具体实践步骤。
+
+<!-- more -->
 
 简介：Redis 集群是一个可以在多个 Redis 节点之间进行数据共享的设施（installation）。
 

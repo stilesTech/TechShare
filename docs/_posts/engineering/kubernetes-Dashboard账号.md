@@ -7,9 +7,9 @@ tags: ["kubernetes"]
 category: 软件工程
 ---
 
-# kubernetes-Dashboard账号
+作为Kubernetes的Web用户界面，用户可以通过Dashboard在Kubernetes集群中部署容器化的应用，对应用进行问题处理和管理，并对集群本身进行管理。本文介绍下dashboard的安装过程。
 
-简介：作为Kubernetes的Web用户界面，用户可以通过Dashboard在Kubernetes集群中部署容器化的应用，对应用进行问题处理和管理，并对集群本身进行管理。本文介绍下dashboard的安装过程。
+<!-- more -->
 
 **1：安装kubernetes dashboard**
 
