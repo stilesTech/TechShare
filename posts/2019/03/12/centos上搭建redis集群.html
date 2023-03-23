@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>centos上搭建redis集群 | Stiles 的技术分享</title>
+    <meta name="description" content="🌟 分享效率方法 🪄、优质文章 📑、编程知识 🎹、实用工具 🛠️ 和有趣内容 😄。">
+    <meta name="generator" content="VuePress 1.3.0">
+    <link rel="preload" href="/assets/js/vendor.vue.f0f8acc0.js" as="script"><link rel="preload" href="/assets/css/0.styles.dd149575.css" as="style"><link rel="preload" href="/assets/js/vendor.commons.dd149575.js" as="script"><link rel="preload" href="/assets/css/styles.7cd2f725.css" as="style"><link rel="preload" href="/assets/js/app.7cd2f725.js" as="script"><link rel="preload" href="/assets/css/23.styles.92c23f5d.css" as="style"><link rel="preload" href="/assets/js/23.92c23f5d.js" as="script"><link rel="preload" href="/assets/js/13.35578072.js" as="script"><link rel="prefetch" href="/assets/css/1.styles.5abf5dc7.css"><link rel="prefetch" href="/assets/css/15.styles.b52b85a9.css"><link rel="prefetch" href="/assets/css/16.styles.9c6b8fa8.css"><link rel="prefetch" href="/assets/css/22.styles.a5f4e9b5.css"><link rel="prefetch" href="/assets/css/8.styles.81769a90.css"><link rel="prefetch" href="/assets/js/1.5abf5dc7.js"><link rel="prefetch" href="/assets/js/10.16ca592f.js"><link rel="prefetch" href="/assets/js/11.71bb42a8.js"><link rel="prefetch" href="/assets/js/12.d432b8a3.js"><link rel="prefetch" href="/assets/js/14.529ca082.js"><link rel="prefetch" href="/assets/js/15.b52b85a9.js"><link rel="prefetch" href="/assets/js/16.9c6b8fa8.js"><link rel="prefetch" href="/assets/js/17.15398c64.js"><link rel="prefetch" href="/assets/js/18.f05d2f6f.js"><link rel="prefetch" href="/assets/js/19.f99ba844.js"><link rel="prefetch" href="/assets/js/20.bf61bb66.js"><link rel="prefetch" href="/assets/js/21.093c3a10.js"><link rel="prefetch" href="/assets/js/22.a5f4e9b5.js"><link rel="prefetch" href="/assets/js/24.a56fc5e9.js"><link rel="prefetch" href="/assets/js/25.aced683f.js"><link rel="prefetch" href="/assets/js/26.d3959aeb.js"><link rel="prefetch" href="/assets/js/27.1775218e.js"><link rel="prefetch" href="/assets/js/28.ce57f778.js"><link rel="prefetch" href="/assets/js/29.e3700c9c.js"><link rel="prefetch" href="/assets/js/30.80210909.js"><link rel="prefetch" href="/assets/js/31.dd9b922d.js"><link rel="prefetch" href="/assets/js/32.eb9e09bc.js"><link rel="prefetch" href="/assets/js/33.5ccb27ea.js"><link rel="prefetch" href="/assets/js/34.8d5861a2.js"><link rel="prefetch" href="/assets/js/35.dd156f1d.js"><link rel="prefetch" href="/assets/js/36.76a12f14.js"><link rel="prefetch" href="/assets/js/37.a9f5118a.js"><link rel="prefetch" href="/assets/js/38.110008c3.js"><link rel="prefetch" href="/assets/js/39.9536bc2d.js"><link rel="prefetch" href="/assets/js/4.60e24cea.js"><link rel="prefetch" href="/assets/js/40.3cfff0fa.js"><link rel="prefetch" href="/assets/js/41.abbb58e6.js"><link rel="prefetch" href="/assets/js/42.04657e5e.js"><link rel="prefetch" href="/assets/js/5.c59d8b27.js"><link rel="prefetch" href="/assets/js/6.bb005a56.js"><link rel="prefetch" href="/assets/js/7.e1c46873.js"><link rel="prefetch" href="/assets/js/8.81769a90.js"><link rel="prefetch" href="/assets/js/9.69b8980e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.dd149575.css"><link rel="stylesheet" href="/assets/css/styles.7cd2f725.css"><link rel="stylesheet" href="/assets/css/23.styles.92c23f5d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy"><header class="header" data-v-3054f967><div data-v-eab05d90 data-v-3054f967><nav class="navbar" data-v-eab05d90><div class="container" data-v-eab05d90><a href="/" class="router-link-active" data-v-eab05d90><span class="navbar-site-name" data-v-eab05d90>
+          Stiles 的技术分享
+        </span></a> <div class="navbar-toggler" data-v-eab05d90><svg class="icon" style="font-size:1.2em;" data-v-eab05d90 data-v-eab05d90><title data-v-eab05d90 data-v-eab05d90>menu</title><use xlink:href="#icon-menu" data-v-eab05d90 data-v-eab05d90></use></svg></div> <div class="navbar-links" data-v-eab05d90><a href="/" class="navbar-link" data-v-eab05d90>
+            Home
+          </a><a href="/posts/" class="navbar-link router-link-active" data-v-eab05d90>
+            Posts
+          </a><a href="/projects/" class="navbar-link" data-v-eab05d90>
+            Projects
+          </a><a href="https://github.com/stilesTech/TechShare" target="_blank" rel="noopener noreferrer" class="navbar-link" data-v-eab05d90><span data-v-eab05d90>Github</span> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" data-v-eab05d90 data-v-eab05d90><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-eab05d90></div></div> <div class="banner" data-v-66d98992 data-v-3054f967 data-v-3054f967><div class="container" data-v-66d98992><div class="center" data-v-66d98992><h1 data-v-66d98992 data-v-3054f967>
+          centos上搭建redis集群
+        </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-5c108b84 data-v-5c108b84><main class="main" data-v-5c108b84><div class="post" data-v-5c108b84 data-v-5c108b84><section class="post-meta main-div" data-v-0afc19fc><section class="post-date clearfix" data-v-0afc19fc><span class="create-date" data-v-0afc19fc>
+      发布时间 : 2019-03-12
+    </span> <!----></section> <section class="post-links" data-v-0afc19fc><a href="/posts/2018/12/27/kubernetes-dashboard%E8%B4%A6%E5%8F%B7.html" class="post-link" data-v-0afc19fc>
+      上一篇 : kubernetes-Dashboard账号
+    </a> <a href="/posts/2019/06/09/sqlserver-alwayson%E6%90%AD%E5%BB%BA.html" class="post-link" data-v-0afc19fc>
+      下一篇 : SqlServer AlwaysOn搭建
+    </a></section></section> <article class="main-div"><div class="post-content content content__default"><h1 id="centos上搭建redis集群"><a href="#centos上搭建redis集群" class="header-anchor">#</a> centos上搭建redis集群</h1> <p>简介：Redis 集群是一个可以在多个 Redis 节点之间进行数据共享的设施（installation）。</p> <p><strong>集群的理解</strong>为何使用集群：解决单机故障，和单台服务器性能瓶颈的问题</p> <p>提升系统负载，引入集群也引入了集群间节点通信和数据同步的一致性问题，和系统高可用的问题。</p> <p><img src="/assets/img/2303071062.3a9232e5.png" alt="../uploads/2020/10/2303071062.png"></p> <p><strong>1.安装环境依赖</strong></p> <div class="language- extra-class"><pre class="language-text"><code>yum -y install gcc automake autoconf libtool make
+yum install gcc-c++
+</code></pre></div><p><strong>2.下载redis软件包，解压并安装</strong></p> <div class="language- extra-class"><pre class="language-text"><code> cd /usr/local/software
+ wget &lt;http://download.redis.io/releases/redis-5.0.3.tar.gz&gt;
+ tar xzf redis-5.0.3.tar.gz
+ cd redis-5.0.3
+ make &amp;&amp; make install
+</code></pre></div><p><img src="/assets/img/2144204738.f44e8422.png" alt="../uploads/2020/10/2144204738.png"></p> <p><strong>3.建立软件以及节点运行目录，复制配置文件</strong></p> <div class="language- extra-class"><pre class="language-text"><code>cd /usr/local
+mkdir redis-cluster
+cd redis-cluster
+mkdir redis-node-7000 redis-node-7001 redis-node-7002 redis-node-7003 redis-node-7004 redis-node-7005 redis-node-7006
+redis-node-7007
+cd redis-node1
+mkdir logs data
+cd /usr/local/software/redis-5.0.3
+cp redis.conf /usr/local/redis-cluster/redis-node-7000
+cp redis.conf /usr/local/redis-cluster/redis-node-7001
+cp redis.conf /usr/local/redis-cluster/redis-node-7002
+cp redis.conf /usr/local/redis-cluster/redis-node-7003
+cp redis.conf /usr/local/redis-cluster/redis-node-7004
+cp redis.conf /usr/local/redis-cluster/redis-node-7005
+cp redis.conf /usr/local/redis-cluster/redis-node-7006
+cp redis.conf /usr/local/redis-cluster/redis-node-7007
+cd src
+cp redis-cli redis-server   /usr/local/redis-cluster/redis-node-7000
+cp redis-cli redis-server   /usr/local/redis-cluster/redis-node-7001
+cp redis-cli redis-server   /usr/local/redis-cluster/redis-node-7002
+cp redis-cli redis-server   /usr/local/redis-cluster/redis-node-7003
+cp redis-cli redis-server   /usr/local/redis-cluster/redis-node-7004
+cp redis-cli redis-server   /usr/local/redis-cluster/redis-node-7005
+cp redis-cli redis-server   /usr/local/redis-cluster/redis-node-7006
+cp redis-cli redis-server   /usr/local/redis-cluster/redis-node-7007
+</code></pre></div><p><strong>4.修改配置文件</strong></p> <div class="language- extra-class"><pre class="language-text"><code>cd /usr/local/redis-cluster/redis-node-7000
+vi redis.conf
+--文件内容如下
+port 7000 //端口7000,7002,7003..
+bind 本机ip //默认ip为127.0.0.1 需要改为其他节点机器可访问的ip 否则创建集群时无法访问对应的端口，无法创建集群
+daemonize yes //redis后台运行
+pidfile /usr/local/redis-cluster/redis-node-7000/redis_7000.pid //pidfile文件对应7000,7001,7002,7003,7004,7005,7006,7007
+cluster-enabled yes //开启集群 把注释#去掉
+cluster-config-file nodes_7000.conf //集群的配置 配置文件首次启动自动生成 7000,7001,7002,7003..
+cluster-node-timeout 15000 //请求超时 默认15秒，可自行设置
+appendonly yes //aof日志开启 有需要就开启，它会每次写操作都记录一条日志
+logfile &quot;/usr/local/redis-cluster/redis-node-7000/logs/redis_7000.log&quot; //配置日志文件路径 dir &quot;/usr/local/redis-cluster/redis-5.0.3-node/data&quot;　　//配置数据文件存放路径
+dir &quot;/usr/local/redis-cluster/redis-node-7000/data&quot;
+</code></pre></div><p><strong>5.启动各个节点</strong>cd /usr/local/redis-cluster/redis-node-7000</p> <div class="language- extra-class"><pre class="language-text"><code>redis-server redis.conf
+</code></pre></div><p>查看启动情况</p> <div class="language- extra-class"><pre class="language-text"><code>ps -ef | grep redis
+</code></pre></div><p><img src="/assets/img/3807803297.e7d78cdb.png" alt="../uploads/2020/10/3807803297.png"></p> <div class="language- extra-class"><pre class="language-text"><code>6.初始化集群（节点列表顺序用于确定主从角色，先主节点之后是从节点）
+cd /usr/local/redis-cluster
+redis-cli  --cluster create  --cluster-replicas  1  192.168.50.230:7000 192.168.50.230:7001  192.168.50.230:7002 192.168.50.230:7003  192.168.50.230:7004  192.168.50.230:7005 192.168.50.230:7006 192.168.50.230:7007
+</code></pre></div><p><img src="/assets/img/3603667446.db86fd66.png" alt="../uploads/2020/10/3603667446.png"></p> <p>查看集群信息</p> <div class="language- extra-class"><pre class="language-text"><code>redis-cli -c -h 192.168.50.230 -p 7000
+cluster info
+</code></pre></div><p><img src="/assets/img/2502187957.36afd53e.png" alt="../uploads/2020/10/2502187957.png"></p> <p>检查集群信息</p> <div class="language- extra-class"><pre class="language-text"><code>redis-cli --cluster check 192.168.50.230:7000
+</code></pre></div><p><strong>参考资料</strong></p> <p><a href="https://www.cnblogs.com/coes/p/9031939.html" target="_blank" rel="noopener noreferrer">centos7快速搭建redis集群环境<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://blog.csdn.net/qq_36514588/article/details/83856795" target="_blank" rel="noopener noreferrer">redis5.0.0集群搭建-centos7<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="http://www.mamicode.com/info-detail-1843956.html" target="_blank" rel="noopener noreferrer">安装redis出现cc adlist.0 /bin/sh:1:cc:not found<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div></article> <section class="post-meta main-div" data-v-0afc19fc><section class="post-date clearfix" data-v-0afc19fc><span class="create-date" data-v-0afc19fc>
+      发布时间 : 2019-03-12
+    </span> <!----></section> <section class="post-links" data-v-0afc19fc><a href="/posts/2018/12/27/kubernetes-dashboard%E8%B4%A6%E5%8F%B7.html" class="post-link" data-v-0afc19fc>
+      上一篇 : kubernetes-Dashboard账号
+    </a> <a href="/posts/2019/06/09/sqlserver-alwayson%E6%90%AD%E5%BB%BA.html" class="post-link" data-v-0afc19fc>
+      下一篇 : SqlServer AlwaysOn搭建
+    </a></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-5c108b84><div class="info-card main-div" data-v-1732e38d data-v-5c108b84><div class="info-card-header" data-v-1732e38d><img src="/assets/img/avatar.jpg" alt="Stiles" class="info-avatar" data-v-1732e38d></div> <div class="info-card-body" data-v-1732e38d><section class="info-nickname" data-v-1732e38d>
+      Stiles
+    </section> <section class="info-desc" data-v-1732e38d>一个梦想成为优秀架构师的程序员。座右铭：stay hungry stay foolish</section> <section class="info-contact" data-v-1732e38d><section data-v-1732e38d><span title="Shenzhen, China" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>Shenzhen, China</title><use xlink:href="#icon-location" data-v-1732e38d data-v-1732e38d></use></svg><span class="info-text" data-v-1732e38d data-v-1732e38d>
+          Shenzhen, China
+        </span></span></section> <section data-v-1732e38d><span title="YoYo" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>YoYo</title><use xlink:href="#icon-organization" data-v-1732e38d data-v-1732e38d></use></svg><span class="info-text" data-v-1732e38d data-v-1732e38d>
+          YoYo
+        </span></span></section> <section data-v-1732e38d><a href="mailto:stilesting@gmail.com" title="stilesting@gmail.com" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>stilesting@gmail.com</title><use xlink:href="#icon-email" data-v-1732e38d data-v-1732e38d></use></svg><span class="info-text" data-v-1732e38d data-v-1732e38d>
+          stilesting@gmail.com
+        </span></a></section></section></div> <div class="info-card-footer" data-v-1732e38d><section class="info-sns clearfix" data-v-1732e38d><a href="https://github.com/stilesTech" target="_blank" class="sns-link" data-v-1732e38d><span title="GitHub: stiles" class="sns-icon" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1.5em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>GitHub: stiles</title><use xlink:href="#icon-github" data-v-1732e38d data-v-1732e38d></use></svg></span></a><a href="https://twitter.com/tiingou" target="_blank" class="sns-link" data-v-1732e38d><span title="Twitter: tiingou" class="sns-icon" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1.5em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>Twitter: tiingou</title><use xlink:href="#icon-twitter" data-v-1732e38d data-v-1732e38d></use></svg></span></a><a href="https://hub.docker.com/u/stilesboy" target="_blank" class="sns-link" data-v-1732e38d><span title="Docker Hub: stiles" class="sns-icon" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1.5em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>Docker Hub: stiles</title><use xlink:href="#icon-docker" data-v-1732e38d data-v-1732e38d></use></svg></span></a><a href="https://juejin.im/user/4103806975222104" target="_blank" class="sns-link" data-v-1732e38d><span title="掘金: stiles" class="sns-icon" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1.5em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>掘金: stiles</title><use xlink:href="#icon-juejin" data-v-1732e38d data-v-1732e38d></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-5c108b84><!----> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/posts/2019/03/12/centos%E4%B8%8A%E6%90%AD%E5%BB%BAredis%E9%9B%86%E7%BE%A4.html#post-comments">
+      评论
+    </a></div></div></aside></div> <footer class="footer" data-v-2c67d6af><p class="footer-sns-links" data-v-2c67d6af><a href="https://github.com/stilesTech" target="_blank" class="sns-link" data-v-2c67d6af><span title="GitHub: stiles" class="sns-icon" data-v-2c67d6af data-v-2c67d6af><svg class="icon" style="font-size:25px;" data-v-2c67d6af data-v-2c67d6af><title data-v-2c67d6af data-v-2c67d6af>GitHub: stiles</title><use xlink:href="#icon-github" data-v-2c67d6af data-v-2c67d6af></use></svg></span></a><a href="https://twitter.com/tiingou" target="_blank" class="sns-link" data-v-2c67d6af><span title="Twitter: tiingou" class="sns-icon" data-v-2c67d6af data-v-2c67d6af><svg class="icon" style="font-size:25px;" data-v-2c67d6af data-v-2c67d6af><title data-v-2c67d6af data-v-2c67d6af>Twitter: tiingou</title><use xlink:href="#icon-twitter" data-v-2c67d6af data-v-2c67d6af></use></svg></span></a><a href="https://hub.docker.com/u/stilesboy" target="_blank" class="sns-link" data-v-2c67d6af><span title="Docker Hub: stiles" class="sns-icon" data-v-2c67d6af data-v-2c67d6af><svg class="icon" style="font-size:25px;" data-v-2c67d6af data-v-2c67d6af><title data-v-2c67d6af data-v-2c67d6af>Docker Hub: stiles</title><use xlink:href="#icon-docker" data-v-2c67d6af data-v-2c67d6af></use></svg></span></a><a href="https://juejin.im/user/4103806975222104" target="_blank" class="sns-link" data-v-2c67d6af><span title="掘金: stiles" class="sns-icon" data-v-2c67d6af data-v-2c67d6af><svg class="icon" style="font-size:25px;" data-v-2c67d6af data-v-2c67d6af><title data-v-2c67d6af data-v-2c67d6af>掘金: stiles</title><use xlink:href="#icon-juejin" data-v-2c67d6af data-v-2c67d6af></use></svg></span></a></p> <p class="footer-text" data-v-2c67d6af><span data-v-2c67d6af>Powered by </span> <a href="https://github.com/vuejs/vuepress" target="_blank" data-v-2c67d6af>
+      VuePress
+    </a> <span data-v-2c67d6af> | </span> <a href="https://github.com/meteorlxy/vuepress-theme-meteorlxy" target="_blank" data-v-2c67d6af>
+        meteorlxy
+      </a></p> <p class="footer-text" data-v-2c67d6af>Copyright 2023-present <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2021014324号-1</a> | MIT License</p></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/vendor.vue.f0f8acc0.js" defer></script><script src="/assets/js/23.92c23f5d.js" defer></script><script src="/assets/js/13.35578072.js" defer></script><script src="/assets/js/vendor.commons.dd149575.js" defer></script><script src="/assets/js/app.7cd2f725.js" defer></script>
+  </body>
+</html>

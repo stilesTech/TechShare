@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>kubernetes上部署.net core程序 | Stiles 的技术分享</title>
+    <meta name="description" content="🌟 分享效率方法 🪄、优质文章 📑、编程知识 🎹、实用工具 🛠️ 和有趣内容 😄。">
+    <meta name="generator" content="VuePress 1.3.0">
+    <link rel="preload" href="/assets/js/vendor.vue.f0f8acc0.js" as="script"><link rel="preload" href="/assets/css/0.styles.dd149575.css" as="style"><link rel="preload" href="/assets/js/vendor.commons.dd149575.js" as="script"><link rel="preload" href="/assets/css/styles.7cd2f725.css" as="style"><link rel="preload" href="/assets/js/app.7cd2f725.js" as="script"><link rel="preload" href="/assets/css/23.styles.92c23f5d.css" as="style"><link rel="preload" href="/assets/js/23.92c23f5d.js" as="script"><link rel="preload" href="/assets/js/27.1775218e.js" as="script"><link rel="prefetch" href="/assets/css/1.styles.5abf5dc7.css"><link rel="prefetch" href="/assets/css/15.styles.b52b85a9.css"><link rel="prefetch" href="/assets/css/16.styles.9c6b8fa8.css"><link rel="prefetch" href="/assets/css/22.styles.a5f4e9b5.css"><link rel="prefetch" href="/assets/css/8.styles.81769a90.css"><link rel="prefetch" href="/assets/js/1.5abf5dc7.js"><link rel="prefetch" href="/assets/js/10.16ca592f.js"><link rel="prefetch" href="/assets/js/11.71bb42a8.js"><link rel="prefetch" href="/assets/js/12.d432b8a3.js"><link rel="prefetch" href="/assets/js/13.35578072.js"><link rel="prefetch" href="/assets/js/14.529ca082.js"><link rel="prefetch" href="/assets/js/15.b52b85a9.js"><link rel="prefetch" href="/assets/js/16.9c6b8fa8.js"><link rel="prefetch" href="/assets/js/17.15398c64.js"><link rel="prefetch" href="/assets/js/18.f05d2f6f.js"><link rel="prefetch" href="/assets/js/19.f99ba844.js"><link rel="prefetch" href="/assets/js/20.bf61bb66.js"><link rel="prefetch" href="/assets/js/21.093c3a10.js"><link rel="prefetch" href="/assets/js/22.a5f4e9b5.js"><link rel="prefetch" href="/assets/js/24.a56fc5e9.js"><link rel="prefetch" href="/assets/js/25.aced683f.js"><link rel="prefetch" href="/assets/js/26.d3959aeb.js"><link rel="prefetch" href="/assets/js/28.ce57f778.js"><link rel="prefetch" href="/assets/js/29.e3700c9c.js"><link rel="prefetch" href="/assets/js/30.80210909.js"><link rel="prefetch" href="/assets/js/31.dd9b922d.js"><link rel="prefetch" href="/assets/js/32.eb9e09bc.js"><link rel="prefetch" href="/assets/js/33.5ccb27ea.js"><link rel="prefetch" href="/assets/js/34.8d5861a2.js"><link rel="prefetch" href="/assets/js/35.dd156f1d.js"><link rel="prefetch" href="/assets/js/36.76a12f14.js"><link rel="prefetch" href="/assets/js/37.a9f5118a.js"><link rel="prefetch" href="/assets/js/38.110008c3.js"><link rel="prefetch" href="/assets/js/39.9536bc2d.js"><link rel="prefetch" href="/assets/js/4.60e24cea.js"><link rel="prefetch" href="/assets/js/40.3cfff0fa.js"><link rel="prefetch" href="/assets/js/41.abbb58e6.js"><link rel="prefetch" href="/assets/js/42.04657e5e.js"><link rel="prefetch" href="/assets/js/5.c59d8b27.js"><link rel="prefetch" href="/assets/js/6.bb005a56.js"><link rel="prefetch" href="/assets/js/7.e1c46873.js"><link rel="prefetch" href="/assets/js/8.81769a90.js"><link rel="prefetch" href="/assets/js/9.69b8980e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.dd149575.css"><link rel="stylesheet" href="/assets/css/styles.7cd2f725.css"><link rel="stylesheet" href="/assets/css/23.styles.92c23f5d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy"><header class="header" data-v-3054f967><div data-v-eab05d90 data-v-3054f967><nav class="navbar" data-v-eab05d90><div class="container" data-v-eab05d90><a href="/" class="router-link-active" data-v-eab05d90><span class="navbar-site-name" data-v-eab05d90>
+          Stiles 的技术分享
+        </span></a> <div class="navbar-toggler" data-v-eab05d90><svg class="icon" style="font-size:1.2em;" data-v-eab05d90 data-v-eab05d90><title data-v-eab05d90 data-v-eab05d90>menu</title><use xlink:href="#icon-menu" data-v-eab05d90 data-v-eab05d90></use></svg></div> <div class="navbar-links" data-v-eab05d90><a href="/" class="navbar-link" data-v-eab05d90>
+            Home
+          </a><a href="/posts/" class="navbar-link router-link-active" data-v-eab05d90>
+            Posts
+          </a><a href="/projects/" class="navbar-link" data-v-eab05d90>
+            Projects
+          </a><a href="https://github.com/stilesTech/TechShare" target="_blank" rel="noopener noreferrer" class="navbar-link" data-v-eab05d90><span data-v-eab05d90>Github</span> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" data-v-eab05d90 data-v-eab05d90><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-eab05d90></div></div> <div class="banner" data-v-66d98992 data-v-3054f967 data-v-3054f967><div class="container" data-v-66d98992><div class="center" data-v-66d98992><h1 data-v-66d98992 data-v-3054f967>
+          kubernetes上部署.net core程序
+        </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-5c108b84 data-v-5c108b84><main class="main" data-v-5c108b84><div class="post" data-v-5c108b84 data-v-5c108b84><section class="post-meta main-div" data-v-0afc19fc><section class="post-date clearfix" data-v-0afc19fc><span class="create-date" data-v-0afc19fc>
+      发布时间 : 2019-12-31
+    </span> <!----></section> <section class="post-links" data-v-0afc19fc><a href="/posts/2019/09/21/%E5%9C%A8docker%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BF%90%E8%A1%8Cphp.html" class="post-link" data-v-0afc19fc>
+      上一篇 : 在docker环境下运行PHP
+    </a> <a href="/posts/2020/06/04/elk-windows%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" class="post-link" data-v-0afc19fc>
+      下一篇 : ELK-Windows环境搭建
+    </a></section></section> <article class="main-div"><div class="post-content content content__default"><h1 id="kubernetes上部署-net-core程序"><a href="#kubernetes上部署-net-core程序" class="header-anchor">#</a> kubernetes上部署.net core程序</h1> <p>19年最后一天梳理了下部署.net core 到腾讯云kubernetes集群上面</p> <p>流程如下：</p> <p>1:打包镜像(使用Dockerfile)</p> <p>2:上传镜像到腾讯云私有仓库</p> <p>3:使用yaml文件创建Deployment,Service使容器run起来</p> <p>流程很简单，让我们开始吧</p> <p>1:打包镜像，在项目发布目录下，创建Dockerfile文件，内容如下</p> <div class="language- extra-class"><pre class="language-text"><code>FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+#设定工作目录
+WORKDIR /app
+#在容器中程序使用的端口，一定要和程序启动使用的端口对应上
+EXPOSE 80
+#复制文件到工作目录
+COPY . .
+ENTRYPOINT [&quot;dotnet&quot;, &quot;Hobby_api.dll&quot;]
+</code></pre></div><p>使用docker build构建镜像</p> <div class="language- extra-class"><pre class="language-text"><code>docker build -t 127.0.0.1:5000/hobby-api:v1.1 .
+</code></pre></div><p>如无意外，docker images 可查看到镜像</p> <p>2:创建私有仓库push镜像到腾讯云服务器</p> <p>要先创建好宿主机/data/registry目录</p> <div class="language- extra-class"><pre class="language-text"><code>mkdir /data/registry
+docker run -itd  -p  5000:5000 -v /data/registry:/var/lib/registry  docker.io/registry
+</code></pre></div><p>登录，ip可以相应改成对应ip</p> <div class="language- extra-class"><pre class="language-text"><code>docker login 127.0.0.1:5000
+</code></pre></div><p>首次使用输入登录名和密码(第一次输入对账号和密码会自动生成对应账号)</p> <p>推送镜像到私有仓库</p> <div class="language- extra-class"><pre class="language-text"><code>docker push 127.0.0.1:5000/hobby-api:v1.1
+</code></pre></div><p>3:创建hobby-api.yaml文件创建Deployment,Service使容器run起来mkdir hobby-api.yaml创建命名空间</p> <div class="language- extra-class"><pre class="language-text"><code>kubectl create namespace hobby
+</code></pre></div><p>创建yaml文件apiVersion: apps/v1beta1kind: Deploymentmetadata:name: hobby-apinamespace: hobbyspec:replicas: 1selector:</p> <div class="language- extra-class"><pre class="language-text"><code>matchLabels:
+  name: hobby-api
+</code></pre></div><p>template:</p> <div class="language- extra-class"><pre class="language-text"><code>metadata:
+  labels:
+    name: hobby-api
+spec:
+  containers:
+  - name: hobby-api
+    image: 127.0.0.1:5000/hobby-api:v1.1
+    ports:
+    - containerPort: 80
+</code></pre></div><hr> <p>apiVersion: v1kind: Servicemetadata:name: hobby-apinamespace: ho</p> <div class="language- extra-class"><pre class="language-text"><code>bby
+spec:
+  selector:
+    name: hobby-api
+  type: NodePort
+  ports:
+    - nodePort: 30091
+      port: 80
+      protocol: TCP
+      targetPort: 80
+</code></pre></div><p>执行yaml</p> <div class="language- extra-class"><pre class="language-text"><code>kubectl create -f hobby-api.yaml
+</code></pre></div><p><img src="/assets/img/100498012.9ef78152.jpg" alt="../uploads/2020/10/100498012.jpg"></p> <p><img src="/assets/img/2780905707.b60e80d2.jpg" alt="../uploads/2020/10/2780905707.jpg"></p> <p>总结了下这段时间的研究，为19年拉下序幕，感谢关注@stiles 2019-12-31</p></div></article> <section class="post-meta main-div" data-v-0afc19fc><section class="post-date clearfix" data-v-0afc19fc><span class="create-date" data-v-0afc19fc>
+      发布时间 : 2019-12-31
+    </span> <!----></section> <section class="post-links" data-v-0afc19fc><a href="/posts/2019/09/21/%E5%9C%A8docker%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BF%90%E8%A1%8Cphp.html" class="post-link" data-v-0afc19fc>
+      上一篇 : 在docker环境下运行PHP
+    </a> <a href="/posts/2020/06/04/elk-windows%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" class="post-link" data-v-0afc19fc>
+      下一篇 : ELK-Windows环境搭建
+    </a></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-5c108b84><div class="info-card main-div" data-v-1732e38d data-v-5c108b84><div class="info-card-header" data-v-1732e38d><img src="/assets/img/avatar.jpg" alt="Stiles" class="info-avatar" data-v-1732e38d></div> <div class="info-card-body" data-v-1732e38d><section class="info-nickname" data-v-1732e38d>
+      Stiles
+    </section> <section class="info-desc" data-v-1732e38d>一个梦想成为优秀架构师的程序员。座右铭：stay hungry stay foolish</section> <section class="info-contact" data-v-1732e38d><section data-v-1732e38d><span title="Shenzhen, China" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>Shenzhen, China</title><use xlink:href="#icon-location" data-v-1732e38d data-v-1732e38d></use></svg><span class="info-text" data-v-1732e38d data-v-1732e38d>
+          Shenzhen, China
+        </span></span></section> <section data-v-1732e38d><span title="YoYo" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>YoYo</title><use xlink:href="#icon-organization" data-v-1732e38d data-v-1732e38d></use></svg><span class="info-text" data-v-1732e38d data-v-1732e38d>
+          YoYo
+        </span></span></section> <section data-v-1732e38d><a href="mailto:stilesting@gmail.com" title="stilesting@gmail.com" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>stilesting@gmail.com</title><use xlink:href="#icon-email" data-v-1732e38d data-v-1732e38d></use></svg><span class="info-text" data-v-1732e38d data-v-1732e38d>
+          stilesting@gmail.com
+        </span></a></section></section></div> <div class="info-card-footer" data-v-1732e38d><section class="info-sns clearfix" data-v-1732e38d><a href="https://github.com/stilesTech" target="_blank" class="sns-link" data-v-1732e38d><span title="GitHub: stiles" class="sns-icon" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1.5em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>GitHub: stiles</title><use xlink:href="#icon-github" data-v-1732e38d data-v-1732e38d></use></svg></span></a><a href="https://twitter.com/tiingou" target="_blank" class="sns-link" data-v-1732e38d><span title="Twitter: tiingou" class="sns-icon" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1.5em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>Twitter: tiingou</title><use xlink:href="#icon-twitter" data-v-1732e38d data-v-1732e38d></use></svg></span></a><a href="https://hub.docker.com/u/stilesboy" target="_blank" class="sns-link" data-v-1732e38d><span title="Docker Hub: stiles" class="sns-icon" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1.5em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>Docker Hub: stiles</title><use xlink:href="#icon-docker" data-v-1732e38d data-v-1732e38d></use></svg></span></a><a href="https://juejin.im/user/4103806975222104" target="_blank" class="sns-link" data-v-1732e38d><span title="掘金: stiles" class="sns-icon" data-v-1732e38d data-v-1732e38d><svg class="icon" style="font-size:1.5em;" data-v-1732e38d data-v-1732e38d><title data-v-1732e38d data-v-1732e38d>掘金: stiles</title><use xlink:href="#icon-juejin" data-v-1732e38d data-v-1732e38d></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-5c108b84><!----> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/posts/2019/12/31/kubernetes%E4%B8%8A%E9%83%A8%E7%BD%B2-netcore%E7%A8%8B%E5%BA%8F.html#post-comments">
+      评论
+    </a></div></div></aside></div> <footer class="footer" data-v-2c67d6af><p class="footer-sns-links" data-v-2c67d6af><a href="https://github.com/stilesTech" target="_blank" class="sns-link" data-v-2c67d6af><span title="GitHub: stiles" class="sns-icon" data-v-2c67d6af data-v-2c67d6af><svg class="icon" style="font-size:25px;" data-v-2c67d6af data-v-2c67d6af><title data-v-2c67d6af data-v-2c67d6af>GitHub: stiles</title><use xlink:href="#icon-github" data-v-2c67d6af data-v-2c67d6af></use></svg></span></a><a href="https://twitter.com/tiingou" target="_blank" class="sns-link" data-v-2c67d6af><span title="Twitter: tiingou" class="sns-icon" data-v-2c67d6af data-v-2c67d6af><svg class="icon" style="font-size:25px;" data-v-2c67d6af data-v-2c67d6af><title data-v-2c67d6af data-v-2c67d6af>Twitter: tiingou</title><use xlink:href="#icon-twitter" data-v-2c67d6af data-v-2c67d6af></use></svg></span></a><a href="https://hub.docker.com/u/stilesboy" target="_blank" class="sns-link" data-v-2c67d6af><span title="Docker Hub: stiles" class="sns-icon" data-v-2c67d6af data-v-2c67d6af><svg class="icon" style="font-size:25px;" data-v-2c67d6af data-v-2c67d6af><title data-v-2c67d6af data-v-2c67d6af>Docker Hub: stiles</title><use xlink:href="#icon-docker" data-v-2c67d6af data-v-2c67d6af></use></svg></span></a><a href="https://juejin.im/user/4103806975222104" target="_blank" class="sns-link" data-v-2c67d6af><span title="掘金: stiles" class="sns-icon" data-v-2c67d6af data-v-2c67d6af><svg class="icon" style="font-size:25px;" data-v-2c67d6af data-v-2c67d6af><title data-v-2c67d6af data-v-2c67d6af>掘金: stiles</title><use xlink:href="#icon-juejin" data-v-2c67d6af data-v-2c67d6af></use></svg></span></a></p> <p class="footer-text" data-v-2c67d6af><span data-v-2c67d6af>Powered by </span> <a href="https://github.com/vuejs/vuepress" target="_blank" data-v-2c67d6af>
+      VuePress
+    </a> <span data-v-2c67d6af> | </span> <a href="https://github.com/meteorlxy/vuepress-theme-meteorlxy" target="_blank" data-v-2c67d6af>
+        meteorlxy
+      </a></p> <p class="footer-text" data-v-2c67d6af>Copyright 2023-present <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2021014324号-1</a> | MIT License</p></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/vendor.vue.f0f8acc0.js" defer></script><script src="/assets/js/23.92c23f5d.js" defer></script><script src="/assets/js/27.1775218e.js" defer></script><script src="/assets/js/vendor.commons.dd149575.js" defer></script><script src="/assets/js/app.7cd2f725.js" defer></script>
+  </body>
+</html>
