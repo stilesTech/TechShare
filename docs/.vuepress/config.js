@@ -5,6 +5,16 @@ module.exports = {
 
   description: '🌟 分享效率方法 🪄、优质文章 📑、编程知识 🎹、实用工具 🛠️ 和有趣内容 😄。',
 
+  head: [
+    ['link', { rel: "apple-touch-icon", sizes: "180x180", href: "/assets/favicons/apple-touch-icon.png" }],
+    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "/assets/favicons/favicon-32x32.png" }],
+    ['link', { rel: "icon", type: "image/png", sizes: "16x16", href: "/assets/favicons/favicon-16x16.png" }],
+    ['link', { rel: "manifest", href: "/assets/favicons/site.webmanifest" }],
+    ['link', { rel: "shortcut icon", href: "/assets/favicons/favicon.ico" }],
+    ['link', { rel: "feed", href: "/rss.xml", type: "application/rss+xml", title: "stiles 的技术分享" }],
+    ['link', { rel: "alternate", href: "/rss.xml", type: "application/rss+xml", title: "stiles 的技术分享" }],
+  ],
+
   locales: {
     '/': {
       lang: 'zh-CN',
@@ -17,6 +27,25 @@ module.exports = {
     ['@vuepress/google-analytics', {
       ga: 'UA-132770851-2',
     }],
+    // 网站地图插件 npm install vuepress-plugin-sitemap
+    ["sitemap",
+    {
+      hostname: 'https://stiles.cc',
+      exclude: ['/404.html'],
+    }
+  ],
+  [
+    require('./plugins/rss-feed'),
+    {
+      username: 'stiles',
+      hostname: 'https://stiles.cc',
+      selector: '.content__default', // extract content to content:encoded
+      count: 50,
+      filter: (page) =>
+      page._content
+      && page.frontmatter.title,
+    }
+  ],
   ],
 
   chainWebpack: (config, isServer) => {
@@ -137,6 +166,7 @@ module.exports = {
       { text: 'Home', link: '/', exact: true },
       { text: 'Posts', link: '/posts/', exact: false },
       { text: 'Projects', link: '/projects/', exact: false },
+      { text: "RSS 订阅", link: "http://stiles.cc/rss.xml" },
       { text: 'Github', link: 'https://github.com/stilesTech/TechShare' },
     ],
 
@@ -150,6 +180,7 @@ module.exports = {
     },
 
     comments: {
+      platform: 'github',
       owner: 'stilesTech',
       repo: 'TechShare',
       clientId: '5e8eb41444effdecf5f0',
