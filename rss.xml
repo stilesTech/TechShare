@@ -4,7 +4,7 @@
         <description><![CDATA[🌟 分享效率方法 🪄、优质文章 📑、编程知识 🎹、实用工具 🛠️ 和有趣内容 😄。]]></description>
         <link>https://stiles.cc</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 24 Mar 2023 06:15:04 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 24 Mar 2023 14:30:34 GMT</lastBuildDate>
         <atom:link href="https://stiles.cc/rss.xml" rel="self" type="application/rss+xml"/>
         <copyright><![CDATA[stiles 2023]]></copyright>
         <language><![CDATA[zh-CN]]></language>
@@ -837,8 +837,8 @@ pages目录下的js中的方法，onLoad、onShow、onReady、onHide、onUnload 
         </item>
         <item>
             <title><![CDATA[My Projects]]></title>
-            <link>https://stiles.cc/products/</link>
-            <guid isPermaLink="true">https://stiles.cc/products/</guid>
+            <link>https://stiles.cc/projects/</link>
+            <guid isPermaLink="true">https://stiles.cc/projects/</guid>
             <pubDate>Invalid Date</pubDate>
             <content:encoded><![CDATA[<h2 id="about-me"> About Me</h2> <blockquote><p>一个梦想成为优秀架构师的程序员，这是一个完全依靠个人建立的技术性BLOG。是一个分享技术见闻，知识，心得经验的网站</p></blockquote> <blockquote><p>除非文章内特别说明，你可以转载stiles的文章，但请加入文章作者和出处。谢谢。</p></blockquote> <ul><li>📘 我收藏的文章，可从中发现优质内容：<a href="https://raindrop.io/stiles/-24376480" target="_blank" rel="noopener noreferrer">Favorites / Raindrop.io</a></li></ul> <h2 id="open-source"> Open Source</h2> <blockquote><p>GitHub <a href="https://github.com/stilesTech" target="_blank" rel="noopener noreferrer">@stiles</a></p></blockquote> <ul><li><a href="https://github.com/stilesTech/TechShare" target="_blank" rel="noopener noreferrer">TechShare</a> - :blog share</li> <li><a href="https://github.com/stilesTech/gudong" target="_blank" rel="noopener noreferrer">gudong </a> - :一个关于小说阅读的微信小程序</li> <li><a href="https://github.com/stilesTech/wx-hub" target="_blank" rel="noopener noreferrer">wx-hub</a> - :一个微信公众号内容半自动同步工具，可以快速通过微信链接同步其它公众号的文章信息</li> <li><a href="https://github.com/stilesTech/wx-operate-api" target="_blank" rel="noopener noreferrer">wx-operate-api</a> - :wx-operate-api 是wx-hub的一个服务依赖接口，需要配合wx-hub使用</li> <li><a href="https://github.com/stilesTech/Jenkins-Android-Docker" target="_blank" rel="noopener noreferrer">jenkins-android-docker</a> - :Docker镜像内置了Android sdk 用于 Android客户端打包</li></ul>]]></content:encoded>
         </item>
