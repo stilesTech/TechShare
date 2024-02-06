@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm turbo build",
+  "buildCommand": "yarn turbo build",
   "github": {
     "silent": true
   }
