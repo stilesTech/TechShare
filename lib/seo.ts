@@ -1,10 +1,10 @@
 export const seo = {
-  title: 'Cali Castle | 开发者、设计师、细节控、创始人',
+  title: 'Stiles Castle | 开发者、架构师、细节控',
   description:
-    '我叫 Cali，一名开发者，设计师，细节控，同时也是佐玩创始人，目前带领着佐玩致力于创造一个充满创造力的工作环境，同时鼓励团队创造影响世界的产品。',
+    '我叫 Stiles，一名开发者，JAVA架构师，全栈开发工程师，带着对行业的热情梳理一些自己的工作经验和开发感悟',
   url: new URL(
     process.env.NODE_ENV === 'production'
-      ? 'https://cali.so'
+      ? 'https://stiles.cc'
       : 'http://localhost:3000'
   ),
 } as const
