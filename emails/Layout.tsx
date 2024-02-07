@@ -50,7 +50,7 @@ export default function Layout({
                   <strong>Stiles Castle</strong>
                 </Link>
                 <br />
-                开发者、设计师、细节控、创始人
+                开发者、架构师、细节控、骑行党
               </Text>
               <Text className="text-center">
                 <Link

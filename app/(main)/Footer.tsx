@@ -122,7 +122,7 @@ export async function Footer() {
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <p className="text-sm text-zinc-500/80 dark:text-zinc-400/80">
                 &copy; {new Date().getFullYear()} Stiles Castle. 网站已开源：
-                <PeekabooLink href="https://github.com/StilesCastle/stiles.cc">
+                <PeekabooLink href="https://github.com/stilesTech">
                   GitHub
                 </PeekabooLink>
               </p>
