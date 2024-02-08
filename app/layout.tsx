@@ -47,8 +47,8 @@ export const metadata: Metadata = {
     url: 'https://stiles.cc',
   },
   twitter: {
-    site: '@thecalicastle',
-    creator: '@thecalicastle',
+    site: '@thetiingou',
+    creator: '@thetiingou',
     card: 'summary_large_image',
     title: seo.title,
     description: seo.description,
