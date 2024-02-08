@@ -2,10 +2,10 @@ import Image, { type StaticImageData } from 'next/image'
 import React from 'react'
 
 import { BriefcaseIcon } from '~/assets'
-import eightNinthsLogo from '~/assets/company/8ninths.jpeg'
-import abletiveLogo from '~/assets/company/abletive.png'
-import vvsLogo from '~/assets/company/vvs.png'
-import zolplayLogo from '~/assets/company/zolplay.png'
+import shzzLogo from '~/assets/company/shzz.jpg'
+import hsjLogo from '~/assets/company/hsj.png'
+import aggLogo from '~/assets/company/agg.png'
+import yoyoLogo from '~/assets/company/yoyo.jpg'
 
 type Resume = {
   company: string
@@ -16,34 +16,34 @@ type Resume = {
 }
 const resume: Resume[] = [
   {
-    company: '深圳市佐玩信息技术有限公司',
-    title: '创始人 CEO',
-    logo: zolplayLogo,
-    start: '2021',
+    company: 'YOYO互联',
+    title: '技术Leader',
+    logo: yoyoLogo,
+    start: '2022',
     end: {
       label: '至今',
       dateTime: new Date().getFullYear(),
     },
   },
   {
-    company: 'very very spaceship',
-    title: '软件工程师',
-    logo: vvsLogo,
-    start: '2018',
-    end: '2020',
+    company: '华世界',
+    title: '后端开发工程师',
+    logo: hsjLogo,
+    start: '2022',
+    end: '2022',
   },
   {
-    company: '8ninths Inc.',
-    title: 'AR & 全栈工程师',
-    logo: eightNinthsLogo,
-    start: '2017',
-    end: '2018',
+    company: '上海移卓科技网络有限公司深圳分公司',
+    title: '后端开发工程师',
+    logo: aggLogo,
+    start: '2016',
+    end: '2022',
   },
   {
-    company: 'Abletive',
-    title: '创始人',
-    logo: abletiveLogo,
-    start: '2014',
+    company: '上海掌甄网络科技有限公司',
+    title: '后端开发工程师',
+    logo: shzzLogo,
+    start: '2015',
     end: '2016',
   },
 ]
