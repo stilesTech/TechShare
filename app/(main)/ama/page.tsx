@@ -102,8 +102,7 @@ export default function AskMeAnythingPage() {
           一旦你完成支付，通过电子邮箱：{''}
           <PeekabooLink
             href="mailto:stilesting@gmail.com"
-            aria-label="我的邮箱"
-            platform="mail">stilesting@gmail.com</PeekabooLink>
+            >stilesting@gmail.com</PeekabooLink>
             来跟我预约一个合适你的时间。
         </div>
         </p>
