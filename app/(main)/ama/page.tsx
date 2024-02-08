@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
+import { PeekabooLink } from '~/components/links/PeekabooLink'
 import { Container } from '~/components/ui/Container'
 
 import AlipayQR from './alipay-qr.jpg'
-import { PeekabooLink } from '~/components/links/PeekabooLink'
 
 const title = 'AMA 一对一咨询'
 const description =
