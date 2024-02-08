@@ -2,8 +2,8 @@ import Image, { type StaticImageData } from 'next/image'
 import React from 'react'
 
 import { BriefcaseIcon } from '~/assets'
-import hsjLogo from '~/assets/company/hsj.jpg'
 import aggLogo from '~/assets/company/agg.jpg'
+import hsjLogo from '~/assets/company/hsj.jpg'
 import shzzLogo from '~/assets/company/shzz.jpg'
 import yoyoLogo from '~/assets/company/yoyo.jpg'
 
