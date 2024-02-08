@@ -95,13 +95,11 @@ export default function AskMeAnythingPage() {
           </span>
         </p>
         <p>
-          <div>
           一旦你完成支付，通过电子邮箱：{''}
           <PeekabooLink
             href="mailto:stilesting@gmail.com"
             >stilesting@gmail.com</PeekabooLink>
             来跟我预约一个合适你的时间。
-        </div>
         </p>
         {/* <h2>感谢信</h2>
         <p>
