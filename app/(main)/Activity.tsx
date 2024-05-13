@@ -38,7 +38,7 @@ export function Activity() {
       enabled:
         typeof window === 'undefined'
           ? false
-          : new URL(window.location.href).hostname === 'stiles.cc',
+          : new URL(window.location.href).hostname === 'cali.so',
     }
   )
   const [open, setOpen] = React.useState(false)

@@ -1,14 +1,17 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
-import { PeekabooLink } from '~/components/links/PeekabooLink'
+import { RichLink } from '~/components/links/RichLink'
 import { Container } from '~/components/ui/Container'
 
 import AlipayQR from './alipay-qr.jpg'
+import ThankYouLetterScreenshot1 from './Arc aagD26w9@2x.png'
+import ThankYouLetterScreenshot2 from './Arc ynleUdHy@2x.png'
+import { PeekabooLink } from '~/components/links/PeekabooLink'
 
 const title = 'AMA 一对一咨询'
 const description =
-  'Stiles 提供一对一的咨询服务（Ask Me Anything）。我有服务端开发、全栈开发、大规模分布式集群实践建议、处理过千万级用户和上亿级数据存储解决方案，可以为你解答相关的问题。'
+  'Cali 提供一对一的咨询服务（Ask Me Anything）。我有前端开发、全栈开发、UI/UX 设计、创业经验、英语技能、美国留学与工作、内容创作等经验，可以为你解答相关的问题，我也支持纯英语沟通。'
 
 export const metadata = {
   title,
@@ -99,7 +102,7 @@ export default function AskMeAnythingPage() {
           <PeekabooLink
             href="mailto:stilesting@gmail.com"
             >stilesting@gmail.com</PeekabooLink>
-            来跟我预约一个合适你的时间。
+          来跟我预约一个合适你的时间。
         </p>
         {/* <h2>感谢信</h2>
         <p>
@@ -117,7 +120,7 @@ export default function AskMeAnythingPage() {
             alt=""
             className="max-w-full"
           />
-        </p> */}
+        </p>*/}
       </article>
     </Container>
   )
