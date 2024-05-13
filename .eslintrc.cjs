@@ -46,6 +46,13 @@ const config = {
     'simple-import-sort/exports': 'warn',
     'unused-imports/no-unused-imports': 'error',
   },
+  "overrides": [
+    {
+      "rules": {
+        "simple-import-sort/imports": "off",
+      }
+    }
+  ]
 }
 
 module.exports = config
