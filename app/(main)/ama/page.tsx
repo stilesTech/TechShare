@@ -11,7 +11,7 @@ import { PeekabooLink } from '~/components/links/PeekabooLink'
 
 const title = 'AMA 一对一咨询'
 const description =
-  'Cali 提供一对一的咨询服务（Ask Me Anything）。我有前端开发、全栈开发、UI/UX 设计、创业经验、英语技能、美国留学与工作、内容创作等经验，可以为你解答相关的问题，我也支持纯英语沟通。'
+  'Stiles 提供一对一的咨询服务（Ask Me Anything）。我有服务端开发、全栈开发、大规模分布式集群实践建议、处理过千万级用户和上亿级数据存储解决方案，可以为你解答相关的问题。'
 
 export const metadata = {
   title,
