@@ -1,12 +1,9 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
-// import { RichLink } from '~/components/links/RichLink'
 import { Container } from '~/components/ui/Container'
 
 import AlipayQR from './alipay-qr.jpg'
-// import ThankYouLetterScreenshot1 from './Arc aagD26w9@2x.png'
-// import ThankYouLetterScreenshot2 from './Arc ynleUdHy@2x.png'
 import { PeekabooLink } from '~/components/links/PeekabooLink'
 
 const title = 'AMA 一对一咨询'
@@ -104,23 +101,6 @@ export default function AskMeAnythingPage() {
             >stilesting@gmail.com</PeekabooLink>
           来跟我预约一个合适你的时间。
         </p>
-        {/* <h2>感谢信</h2>
-        <p>
-          下面两个截图摘选自两名 Twitter
-          朋友的私信，能够帮助到更多的人一直是我的使命：
-        </p>
-        <p className="grid items-center gap-4 lg:grid-cols-2">
-          <Image
-            src={ThankYouLetterScreenshot1}
-            alt=""
-            className="max-w-full"
-          />
-          <Image
-            src={ThankYouLetterScreenshot2}
-            alt=""
-            className="max-w-full"
-          />
-        </p>*/}
       </article>
     </Container>
   )
