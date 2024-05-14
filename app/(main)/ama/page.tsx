@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
-import { PeekabooLink } from '~/components/links/PeekabooLink'
 import { Container } from '~/components/ui/Container'
 
 import AlipayQR from './alipay-qr.jpg'
+import { PeekabooLink } from '~/components/links/PeekabooLink'
 
 const title = 'AMA 一对一咨询'
 const description =
@@ -99,25 +99,8 @@ export default function AskMeAnythingPage() {
           <PeekabooLink
             href="mailto:stilesting@gmail.com"
             >stilesting@gmail.com</PeekabooLink>
-            来跟我预约一个合适你的时间。
+          来跟我预约一个合适你的时间。
         </p>
-        {/* <h2>感谢信</h2>
-        <p>
-          下面两个截图摘选自两名 Twitter
-          朋友的私信，能够帮助到更多的人一直是我的使命：
-        </p>
-        <p className="grid items-center gap-4 lg:grid-cols-2">
-          <Image
-            src={ThankYouLetterScreenshot1}
-            alt=""
-            className="max-w-full"
-          />
-          <Image
-            src={ThankYouLetterScreenshot2}
-            alt=""
-            className="max-w-full"
-          />
-        </p> */}
       </article>
     </Container>
   )

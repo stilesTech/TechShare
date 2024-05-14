@@ -1,7 +1,9 @@
+import { env } from '~/env.mjs'
+
 export const emailConfig = {
-  from: 'stilesting@gmail.com',
+  from: env.NEXT_PUBLIC_SITE_EMAIL_FROM,
   baseUrl:
-    process.env.VERCEL_ENV === 'production'
-      ? `https://stiles.cc`
+    env.VERCEL_ENV === 'production'
+      ? env.NEXT_PUBLIC_SITE_URL
       : 'http://localhost:3000',
 }

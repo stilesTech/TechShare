@@ -6,7 +6,7 @@ import { Button, Heading, Hr, Img, Section, Text } from './_components'
 import Layout from './Layout'
 
 const NewGuestbookEmail = ({
-  link = 'https://caliso/guestbook',
+  link = 'https://stiles.cc/guestbook',
   userFirstName = 'Stiles',
   userLastName = 'Castle',
   userImageUrl = 'https://stiles.cc/icon.png',
