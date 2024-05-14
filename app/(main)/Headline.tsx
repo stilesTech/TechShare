@@ -81,9 +81,8 @@ export function Headline() {
       >
         <Balancer>
           我是 Stiles，
-          <PeekabooLink href="https://www.hugeease.com/">技术改变生活</PeekabooLink>
-          一个梦想成为优秀架构师的程序员。座右铭：stay hungry stay foolish
-          从业多年热爱开发，这是一个分享技术见闻，知识，心得经验的网站
+          <PeekabooLink href="https://www.hugeease.com/">技术改变生活</PeekabooLink>一个梦想成为优秀架构师的程序员。<br/>
+          座右铭：stay hungry stay foolish。从业多年热爱开发，这是一个分享技术见闻，知识，心得经验的网站
         </Balancer>
       </motion.p>
       <motion.div
