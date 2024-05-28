@@ -32,12 +32,27 @@ export default function BlogPage() {
         <p className="my-6 text-base text-zinc-600 dark:text-zinc-400">
           <Balancer>{description}</Balancer>
         </p>
-        <p className="flex items-center">
-          <SocialLink href="/feed.xml" platform="rss" />
+        <p  className="mt-6 flex gap-6">
+          <SocialLink
+          href="https://twitter.com/tiingou"
+          aria-label="我的推特"
+          platform="twitter"
+        />
+        <SocialLink
+          href="https://github.com/stilesTech"
+          aria-label="我的 GitHub"
+          platform="github"
+        />
+        <SocialLink href="/feed.xml" platform="rss" aria-label="RSS 订阅" />
+        <SocialLink
+          href="mailto:stilesting@gmail.com"
+          aria-label="我的邮箱"
+          platform="mail"
+        />
         </p>
       </header>
       <div className="mt-12 grid grid-cols-1 gap-6 sm:mt-20 lg:grid-cols-2 lg:gap-8">
-        <BlogPosts limit={20} />
+        <BlogPosts limit={100} />
       </div>
     </Container>
   )

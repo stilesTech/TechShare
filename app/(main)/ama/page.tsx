@@ -48,26 +48,6 @@ export default function AskMeAnythingPage() {
           <li>
             <b>开发瓶颈/架构难题</b>：不知道如何解决棘手问题？想提升自己的开发水平？
           </li>
-          {/* <li>
-            <b>创业经验</b>
-            ：我是
-            <RichLink href="https://zolplay.com" target="_blank">
-              佐玩
-            </RichLink>
-            的创始人，现在带领着团队帮助游戏开发者打造协同平台。
-          </li> */}
-          {/* <li>
-            <b>英语技能</b>：英语能力不足，想提高自己的英语水平？想跟 Stiles
-            一样可以{' '}
-            <RichLink
-              href="https://y.qq.com/n/ryqq/songDetail/003c0O9B3firAU"
-              favicon={false}
-              target="_blank"
-            >
-              英文说唱
-            </RichLink>
-            ？
-          </li> */}
           <li>
             <b>其他</b>
             ：我就职于深圳一家互联网企业，热爱技术喜欢研究各种“疑难杂症”，代码洁癖症，这是个互联网蓬勃发展的年度，短短几十年就发展到如今的高度，为时代的见证者和亲历者。

@@ -20,6 +20,7 @@ export async function BlogPosts({ limit = 5 }) {
 
   return (
     <>
+    
       {posts.map((post, idx) => (
         <BlogPostCard post={post} views={views[idx] ?? 0} key={post._id} />
       ))}
